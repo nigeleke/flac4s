@@ -1,0 +1,12 @@
+frame=0	offset=42	bits=248	blocksize=24	sample_rate=32000	channels=1	channel_assignment=INDEPENDENT
+	subframe=0	wasted_bits=0	type=LPC	order=3	qlp_coeff_precision=4	quantization_level=2	residual_type=RICE	partition_order=2
+		qlp_coeff[0]=7
+		qlp_coeff[1]=-6
+		qlp_coeff[2]=2
+		warmup[0]=0
+		warmup[1]=79
+		warmup[2]=111
+		parameter[0]=3
+		parameter[1]=ESCAPE, raw_bits=5
+		parameter[2]=2
+		parameter[3]=1

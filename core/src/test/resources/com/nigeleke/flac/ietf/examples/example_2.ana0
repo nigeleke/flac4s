@@ -1,0 +1,186 @@
+METADATA block #0
+  type: 0 (STREAMINFO)
+  is last: false
+  length: 34
+  minimum blocksize: 16 samples
+  maximum blocksize: 16 samples
+  minimum framesize: 23 bytes
+  maximum framesize: 68 bytes
+  sample_rate: 44100 Hz
+  channels: 2
+  bits-per-sample: 16
+  total samples: 19
+  MD5 signature: d5b0564975e98b8d8b930422757b8103
+METADATA block #1
+  type: 3 (SEEKTABLE)
+  is last: false
+  length: 18
+  seek points: 1
+    point 0: sample_number=0, stream_offset=0, frame_samples=16
+METADATA block #2
+  type: 4 (VORBIS_COMMENT)
+  is last: false
+  length: 58
+  vendor string: reference libFLAC 1.3.3 20190804
+  comments: 1
+    comment[0]: TITLE=
+METADATA block #3
+  type: 1 (PADDING)
+  is last: true 
+  length: 6
+
+frame=0	offset=136	bits=544	blocksize=16	sample_rate=44100	channels=2	channel_assignment=RIGHT_SIDE
+	subframe=0	wasted_bits=0	type=FIXED	order=1	residual_type=RICE	partition_order=0
+		warmup[0]=4302
+		parameter[0]=11
+	subframe=1	wasted_bits=0	type=FIXED	order=1	residual_type=RICE	partition_order=0
+		warmup[0]=6070
+		parameter[0]=12
+frame=1	offset=204	bits=184	blocksize=3	sample_rate=44100	channels=2	channel_assignment=INDEPENDENT
+	subframe=0	wasted_bits=0	type=VERBATIM
+	subframe=1	wasted_bits=1	type=VERBATIM
+
+First Audio Frame Header
+00000088: 11111111 1111100                                 sync
+          0                                                block size strategy
+          0110                                             block size later (8 bit)
+          1001                                             sample rate
+          1001                                             right stereo
+          100                                              bit depth 16
+          0  ..i.
+0000008c: 00000000                                         frame#
+          00001111                                         block size 16
+          10011001                                         crc
+
+First Audio Frame - First Subframe - Header
+          0
+          001001                                           predictorOrder = 9 - 8 = 1
+          0  ....
+00000090: 00001000 01100111 0                              N * Bit-depth + 1 for correlation - wastedBits; N = predictorOrder
+
+First Audio Frame - First Subframe - Residual
+          00
+          0000                                             partitionOrder
+          1 011                                            Rice Parameter (4 / 5 bit) = 11
+
+          0001                                             1 - N * (Quotient / Remainder);  N = frameHeader.blockSize?? - nWarmupSamples
+          0  .g.b
+00000094:  00111101 00
+          01                                               2
+          0100 0100001
+          0 1                                              3
+          0011001  =.B.
+00000098:        1000
+          1                                                4
+          111 01011101
+          1                                                5
+          1110111 0000
+          1                                                6
+          101  .]..
+0000009c:    01101111
+          1                                                7
+          1100000 0000
+          1                                                8
+          100 00010111  o...
+000000a0: 1                                                9
+          1001010 1110
+          1                                                10
+          011 00100001
+          00000000  ..!.
+000000a4:          00001                                   11
+          110 11100111
+          1                                                12
+          0100111 0111
+          1                                                13
+          010  ...z
+000000a8:    00100100
+          1                                                14
+          0100001 0101
+          1                                                15
+          001 00001100  $.Y.
+
+
+First Audio Frame - Second Subframe - Header
+000000ac: 0
+          001001                                           predictorOrder = 9 - 8 = 1
+          0
+          00010111 10110110                                n = 16 - dont know why
+
+First Audio Frame - Second Subframe - Residual
+          00
+          0000                                             partitionOrder
+          11  ....
+000000b0:   00                                             Rice Parameter (4 / 5 bit) = 12
+          001                                              1 - N * (Quotient / Remainder)
+          001 01111011 0
+          1                                                2
+          111000 010011
+          1                                                3
+          1  .{xO
+000000b4:  10101010 100
+          1                                                4
+          1010 00110011
+          1                                                5
+          1010010  ..3.
+000000b8:        10000
+          1                                                6
+          01 11100000 01
+          1                                                7
+          10000 1010110
+          1  ..p.                                          8
+000000bc: 01011011 0001
+          1                                                9
+          011 01001000 0
+          1                                                10
+          010001  [.HQ
+000000c0:       101101
+          00 00000001                                      11
+          00001101 1001
+          1                                                12
+          001  ....
+000000c4:    11010010 1
+          1                                                13
+          001101 000110
+          1                                                14
+          0 01101000  ...h
+000000c8:           111
+          1                                                15
+          0001 11100110
+          10111000 00010000  ....                          crc
+
+
+000000cc: 11111111 1111100                                 sync
+          0                                                block size strategy
+          0110                                             block size later (8 bit)
+          1001                                             sample rate
+          0001                                             two channels L/R
+          100                                              bit depth 16
+          0  ..i.
+000000d0: 00000001                                         frame#
+          00000010                                         block size 3
+          10100100                                         crc
+
+Second Audio Frame - First Subframe - Header
+          0
+          000001                                           verbatim
+          0  ....
+Second Audio Frame - First Subframe - Data                 3 * 16 bit
+000000d4: 11000011 10000010
+          11000100 00001011  ....
+000000d8: 11000001 01001010
+
+
+Second Audio Frame - Second Subframe - Header
+          0
+          000001
+          1
+          1
+
+Second Audio Frame - Second Subframe - Data                3 * (16bit less 1 wasted)
+          1101110  .J..
+000000dc:        01001000
+          11011101 0000001
+          1 10110110  H...
+000000e0:           011111
+          00
+          00010011 00110000           |.0                  crc byte aligned
