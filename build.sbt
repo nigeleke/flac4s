@@ -12,7 +12,7 @@ val slf4jVersion      = "1.7.36"
 
 lazy val root = project
   .in(file("."))
-  .settings(name := "flac")
+  .settings(name := "flac4s")
   .aggregate(core)
 
 //resolvers += "Sonatype Public" at "https://oss.sonatype.org/content/groups/public/"
