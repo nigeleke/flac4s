@@ -1,0 +1,24 @@
+package com.nigeleke.flac
+package codecs
+package metadata
+
+import scodec.*
+import scodec.bits.*
+import scodec.codecs.*
+
+final case class CuesheetTrackIndex(offset: ByteVector, index: Int)
+
+object CuesheetTrackIndex:
+
+  //  <64>  Offset in samples, relative to the track offset, of the index point. For CD-DA, the offset must be evenly divisible by 588 samples (588 samples = 44100 samples/sec * 1/75th of a sec). Note that the offset is from the beginning of the track, not the beginning of the audio data.
+  //  <8>   The index point number. For CD-DA, an index number of 0 corresponds to the track pre-gap. The first index in a track must have a number of 0 or 1, and subsequently, index numbers must increase by 1. Index numbers must be unique within a track.
+  //  <3*8> Reserved. All bits must be set to zero.
+  //
+  private val offsetCodec   = log("cti:offset")(bytes(8)) // long(64)
+  private val indexCodec    = log("cti:index")(uint8)
+  private val reservedCodec = log("cti:reserved")(constant(hex"000000"))
+
+  val codec: Codec[CuesheetTrackIndex] =
+    log("cuesheetTrackIndex")(offsetCodec :: indexCodec)
+      .dropRight(reservedCodec)
+      .as[CuesheetTrackIndex]
