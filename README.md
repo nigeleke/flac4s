@@ -15,7 +15,8 @@ This depends on whether they use `AlbumArtist` or `Artist` tags from the file.
 
 This editor will eventually display tag content and allow updates in order to normalise across a music collection.
 
-  * **Note:**
+  * **Note**
+
     Subsequently found [mp3tag](https://www.mp3tag.de/en/), which has enabled my collection to be normalised.
 
 ## Step one - flac decoder - metadata only
