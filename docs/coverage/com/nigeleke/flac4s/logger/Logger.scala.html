@@ -1,0 +1,457 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          com/nigeleke/flac4s/logger/Logger.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>/*
+</span>2 <span style=''> * Copyright (c) 2023, Nigel Eke
+</span>3 <span style=''> * All rights reserved.
+</span>4 <span style=''> *
+</span>5 <span style=''> * Redistribution and use in source and binary forms, with or without modification,
+</span>6 <span style=''> * are permitted provided that the following conditions are met:
+</span>7 <span style=''> *
+</span>8 <span style=''> * 1. Redistributions of source code must retain the above copyright notice, this
+</span>9 <span style=''> *    list of conditions and the following disclaimer.
+</span>10 <span style=''> *
+</span>11 <span style=''> * 2. Redistributions in binary form must reproduce the above copyright notice,
+</span>12 <span style=''> *    this list of conditions and the following disclaimer in the documentation
+</span>13 <span style=''> *    and/or other materials provided with the distribution.
+</span>14 <span style=''> *
+</span>15 <span style=''> * 3. Neither the name of the copyright holder nor the names of its contributors
+</span>16 <span style=''> *    may be used to endorse or promote products derived from this software without
+</span>17 <span style=''> *    specific prior written permission.
+</span>18 <span style=''> *
+</span>19 <span style=''> * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+</span>20 <span style=''> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+</span>21 <span style=''> * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+</span>22 <span style=''> * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+</span>23 <span style=''> * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+</span>24 <span style=''> * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+</span>25 <span style=''> * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+</span>26 <span style=''> * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+</span>27 <span style=''> * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+</span>28 <span style=''> * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</span>29 <span style=''> */
+</span>30 <span style=''>
+</span>31 <span style=''>package com.nigeleke.flac4s
+</span>32 <span style=''>package logger
+</span>33 <span style=''>
+</span>34 <span style=''>import scodec.*
+</span>35 <span style=''>import scodec.codecs.*
+</span>36 <span style=''>
+</span>37 <span style=''>import com.typesafe.config.*
+</span>38 <span style=''>
+</span>39 <span style=''>object Logger:
+</span>40 <span style=''>
+</span>41 <span style=''>  lazy val config             = </span><span style='background: #AEF1AE'>ConfigFactory.load()</span><span style=''>
+</span>42 <span style=''>  lazy val configuredlogLevel = LogLevel.valueOf(</span><span style='background: #AEF1AE'>config.getString(&quot;flac4s.logging.logLevel&quot;)</span><span style=''>)
+</span>43 <span style=''>
+</span>44 <span style=''>  enum LogLevel:
+</span>45 <span style=''>    case None, Metadata, Field, Audio
+</span>46 <span style=''>
+</span>47 <span style=''>  </span><span style='background: #AEF1AE'>private def log</span><span style=''>[A](name: String, logLevel: LogLevel)(codec: Codec[A]) =
+</span>48 <span style=''>    val logThis = </span><span style='background: #AEF1AE'>configuredlogLevel.ordinal</span><span style=''> &gt;= </span><span style='background: #AEF1AE'>logLevel.ordinal</span><span style=''>
+</span>49 <span style=''>    if logThis
+</span>50 <span style=''>    then </span><span style='background: #F0ADAD'>logToStdOut((name | codec), name)</span><span style=''>
+</span>51 <span style=''>    else (name | codec)
+</span>52 <span style=''>
+</span>53 <span style=''>  </span><span style='background: #AEF1AE'>def logField</span><span style=''>[A](name: String)(codec: Codec[A])  = </span><span style='background: #AEF1AE'>log(name, LogLevel.Field)(codec)</span><span style=''>
+</span>54 <span style=''>  </span><span style='background: #AEF1AE'>def logMetadata</span><span style=''>[A](name: String)(codec: Codec[A]) = </span><span style='background: #AEF1AE'>log(name, LogLevel.Metadata)(codec)</span><span style=''>
+</span>55 <span style=''>  </span><span style='background: #AEF1AE'>def logAudio</span><span style=''>[A](name: String)(codec: Codec[A])  = </span><span style='background: #AEF1AE'>log(name, LogLevel.Audio)(codec)</span><span style=''>
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          40
+        </td>
+        <td>
+          288
+        </td>
+        <td>
+          1741
+          -
+          1761
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          load
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          ConfigFactory.load()
+        </td>
+      </tr><tr>
+        <td>
+          41
+        </td>
+        <td>
+          166
+        </td>
+        <td>
+          1811
+          -
+          1854
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          getString
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          config.getString(&quot;flac4s.logging.logLevel&quot;)
+        </td>
+      </tr><tr>
+        <td>
+          46
+        </td>
+        <td>
+          98
+        </td>
+        <td>
+          1915
+          -
+          1930
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          log
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          private def log
+        </td>
+      </tr><tr>
+        <td>
+          47
+        </td>
+        <td>
+          50
+        </td>
+        <td>
+          2005
+          -
+          2031
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          ordinal
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          configuredlogLevel.ordinal
+        </td>
+      </tr><tr>
+        <td>
+          47
+        </td>
+        <td>
+          315
+        </td>
+        <td>
+          2035
+          -
+          2051
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          ordinal
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logLevel.ordinal
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          182
+        </td>
+        <td>
+          2076
+          -
+          2109
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logToStdOut
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          logToStdOut((name | codec), name)
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          158
+        </td>
+        <td>
+          2076
+          -
+          2109
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logToStdOut
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          logToStdOut((name | codec), name)
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          61
+        </td>
+        <td>
+          2089
+          -
+          2101
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          |
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          name | codec
+        </td>
+      </tr><tr>
+        <td>
+          49
+        </td>
+        <td>
+          270
+        </td>
+        <td>
+          2089
+          -
+          2095
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          |
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          name |
+        </td>
+      </tr><tr>
+        <td>
+          52
+        </td>
+        <td>
+          292
+        </td>
+        <td>
+          2187
+          -
+          2219
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          log
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          log(name, LogLevel.Field)(codec)
+        </td>
+      </tr><tr>
+        <td>
+          52
+        </td>
+        <td>
+          161
+        </td>
+        <td>
+          2137
+          -
+          2149
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def logField
+        </td>
+      </tr><tr>
+        <td>
+          53
+        </td>
+        <td>
+          59
+        </td>
+        <td>
+          2274
+          -
+          2309
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          log
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          log(name, LogLevel.Metadata)(codec)
+        </td>
+      </tr><tr>
+        <td>
+          53
+        </td>
+        <td>
+          297
+        </td>
+        <td>
+          2222
+          -
+          2237
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          logMetadata
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def logMetadata
+        </td>
+      </tr><tr>
+        <td>
+          54
+        </td>
+        <td>
+          199
+        </td>
+        <td>
+          2362
+          -
+          2394
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          log
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          log(name, LogLevel.Audio)(codec)
+        </td>
+      </tr><tr>
+        <td>
+          54
+        </td>
+        <td>
+          75
+        </td>
+        <td>
+          2312
+          -
+          2324
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          logAudio
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def logAudio
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

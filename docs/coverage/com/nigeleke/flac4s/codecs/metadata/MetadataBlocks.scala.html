@@ -1,0 +1,346 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          com/nigeleke/flac4s/codecs/metadata/MetadataBlocks.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>/*
+</span>2 <span style=''> * Copyright (c) 2023, Nigel Eke
+</span>3 <span style=''> * All rights reserved.
+</span>4 <span style=''> *
+</span>5 <span style=''> * Redistribution and use in source and binary forms, with or without modification,
+</span>6 <span style=''> * are permitted provided that the following conditions are met:
+</span>7 <span style=''> *
+</span>8 <span style=''> * 1. Redistributions of source code must retain the above copyright notice, this
+</span>9 <span style=''> *    list of conditions and the following disclaimer.
+</span>10 <span style=''> *
+</span>11 <span style=''> * 2. Redistributions in binary form must reproduce the above copyright notice,
+</span>12 <span style=''> *    this list of conditions and the following disclaimer in the documentation
+</span>13 <span style=''> *    and/or other materials provided with the distribution.
+</span>14 <span style=''> *
+</span>15 <span style=''> * 3. Neither the name of the copyright holder nor the names of its contributors
+</span>16 <span style=''> *    may be used to endorse or promote products derived from this software without
+</span>17 <span style=''> *    specific prior written permission.
+</span>18 <span style=''> *
+</span>19 <span style=''> * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+</span>20 <span style=''> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+</span>21 <span style=''> * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+</span>22 <span style=''> * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+</span>23 <span style=''> * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+</span>24 <span style=''> * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+</span>25 <span style=''> * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+</span>26 <span style=''> * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+</span>27 <span style=''> * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+</span>28 <span style=''> * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</span>29 <span style=''> */
+</span>30 <span style=''>
+</span>31 <span style=''>package com.nigeleke.flac4s
+</span>32 <span style=''>package codecs
+</span>33 <span style=''>package metadata
+</span>34 <span style=''>
+</span>35 <span style=''>import scodec.*
+</span>36 <span style=''>import scodec.bits.*
+</span>37 <span style=''>import scodec.codecs.*
+</span>38 <span style=''>
+</span>39 <span style=''>import scala.annotation.tailrec
+</span>40 <span style=''>
+</span>41 <span style=''>type MetadataBlocks = List[MetadataBlock]
+</span>42 <span style=''>
+</span>43 <span style=''>object MetadataBlocks:
+</span>44 <span style=''>  //  &lt;1&gt;   Last-metadata-block flag: '1' if this block is the last metadata block before the audio blocks, '0' otherwise.
+</span>45 <span style=''>  //  &lt;7&gt;	  BLOCK_TYPE
+</span>46 <span style=''>  //        0 : STREAMINFO
+</span>47 <span style=''>  //        1 : PADDING
+</span>48 <span style=''>  //        2 : APPLICATION
+</span>49 <span style=''>  //        3 : SEEKTABLE
+</span>50 <span style=''>  //        4 : VORBIS_COMMENT
+</span>51 <span style=''>  //        5 : CUESHEET
+</span>52 <span style=''>  //        6 : PICTURE
+</span>53 <span style=''>  //        7-126 : reserved
+</span>54 <span style=''>  //        127 : invalid, to avoid confusion with a frame sync code
+</span>55 <span style=''>  //  &lt;24&gt;	Length (in bytes) of metadata to follow (does not include the size of the METADATA_BLOCK_HEADER)
+</span>56 <span style=''>  //
+</span>57 <span style=''>  // List[MetadataBlock] is NonEmpty as StreamInfo is a mandatory first block.
+</span>58 <span style=''>  //
+</span>59 <span style=''>  val codec: Codec[MetadataBlocks] = 
+</span>60 <span style=''>    </span><span style='background: #AEF1AE'>MetadataBlock.codec.consume(block =&gt;
+</span>61 <span style=''></span><span style='background: #AEF1AE'>      if block.header.isLast
+</span>62 <span style=''></span><span style='background: #AEF1AE'>      then provide(</span><span style='background: #F0ADAD'>List</span><span style='background: #AEF1AE'>(block))
+</span>63 <span style=''></span><span style='background: #AEF1AE'>      else codec.xmap(blocks =&gt; block +: blocks, blocks =&gt; </span><span style='background: #F0ADAD'>blocks.tail</span><span style='background: #AEF1AE'>)
+</span>64 <span style=''></span><span style='background: #AEF1AE'>    )(blocks =&gt; </span><span style='background: #F0ADAD'>blocks.head</span><span style='background: #AEF1AE'>)</span><span style=''>
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          61
+        </td>
+        <td>
+          26
+        </td>
+        <td>
+          2553
+          -
+          2557
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          List
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          List
+        </td>
+      </tr><tr>
+        <td>
+          61
+        </td>
+        <td>
+          235
+        </td>
+        <td>
+          2545
+          -
+          2565
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          provide
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          provide(List(block))
+        </td>
+      </tr><tr>
+        <td>
+          61
+        </td>
+        <td>
+          217
+        </td>
+        <td>
+          2545
+          -
+          2565
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          provide
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          provide(List(block))
+        </td>
+      </tr><tr>
+        <td>
+          61
+        </td>
+        <td>
+          82
+        </td>
+        <td>
+          2553
+          -
+          2564
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          List(block)
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          125
+        </td>
+        <td>
+          2577
+          -
+          2637
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          xmap
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          codec.xmap(blocks =&gt; block +: blocks, blocks =&gt; blocks.tail)
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          116
+        </td>
+        <td>
+          2577
+          -
+          2637
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          xmap
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          codec.xmap(blocks =&gt; block +: blocks, blocks =&gt; blocks.tail)
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          190
+        </td>
+        <td>
+          2625
+          -
+          2636
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          blocks.tail
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          311
+        </td>
+        <td>
+          2598
+          -
+          2613
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          +:
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          block +: blocks
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          7
+        </td>
+        <td>
+          2654
+          -
+          2665
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          head
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          blocks.head
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          12
+        </td>
+        <td>
+          2468
+          -
+          2666
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          consume
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          MetadataBlock.codec.consume(block =&gt;\n      if block.header.isLast\n      then provide(List(block))\n      else codec.xmap(blocks =&gt; block +: blocks, blocks =&gt; blocks.tail)\n    )(blocks =&gt; blocks.head)
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

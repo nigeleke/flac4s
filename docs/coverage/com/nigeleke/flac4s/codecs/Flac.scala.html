@@ -1,0 +1,756 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          com/nigeleke/flac4s/codecs/Flac.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>/*
+</span>2 <span style=''> * Copyright (c) 2023, Nigel Eke
+</span>3 <span style=''> * All rights reserved.
+</span>4 <span style=''> *
+</span>5 <span style=''> * Redistribution and use in source and binary forms, with or without modification,
+</span>6 <span style=''> * are permitted provided that the following conditions are met:
+</span>7 <span style=''> *
+</span>8 <span style=''> * 1. Redistributions of source code must retain the above copyright notice, this
+</span>9 <span style=''> *    list of conditions and the following disclaimer.
+</span>10 <span style=''> *
+</span>11 <span style=''> * 2. Redistributions in binary form must reproduce the above copyright notice,
+</span>12 <span style=''> *    this list of conditions and the following disclaimer in the documentation
+</span>13 <span style=''> *    and/or other materials provided with the distribution.
+</span>14 <span style=''> *
+</span>15 <span style=''> * 3. Neither the name of the copyright holder nor the names of its contributors
+</span>16 <span style=''> *    may be used to endorse or promote products derived from this software without
+</span>17 <span style=''> *    specific prior written permission.
+</span>18 <span style=''> *
+</span>19 <span style=''> * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+</span>20 <span style=''> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+</span>21 <span style=''> * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+</span>22 <span style=''> * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+</span>23 <span style=''> * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+</span>24 <span style=''> * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+</span>25 <span style=''> * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+</span>26 <span style=''> * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+</span>27 <span style=''> * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+</span>28 <span style=''> * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</span>29 <span style=''> */
+</span>30 <span style=''>
+</span>31 <span style=''>package com.nigeleke.flac4s
+</span>32 <span style=''>package codecs
+</span>33 <span style=''>
+</span>34 <span style=''>import audio.*
+</span>35 <span style=''>
+</span>36 <span style=''>import metadata.*
+</span>37 <span style=''>
+</span>38 <span style=''>import java.io.InputStream
+</span>39 <span style=''>import scodec.*
+</span>40 <span style=''>import scodec.bits.*
+</span>41 <span style=''>import scodec.codecs.*
+</span>42 <span style=''>import scodec.Attempt.Failure
+</span>43 <span style=''>import scodec.Attempt.Successful
+</span>44 <span style=''>
+</span>45 <span style=''>import scala.concurrent.{Await, Future, Promise}
+</span>46 <span style=''>import scala.concurrent.duration.Duration
+</span>47 <span style=''>
+</span>48 <span style=''>case class Flac(
+</span>49 <span style=''>    metadataBlocks: MetadataBlocks,
+</span>50 <span style=''>    audioFrames: AudioBits
+</span>51 <span style=''>)
+</span>52 <span style=''>
+</span>53 <span style=''>object Flac:
+</span>54 <span style=''>
+</span>55 <span style=''>  private val markerCodec = </span><span style='background: #AEF1AE'>constant(ByteVector(&quot;fLaC&quot;.getBytes))</span><span style=''>
+</span>56 <span style=''>
+</span>57 <span style=''>  val codec: Codec[Flac] = </span><span style='background: #F0ADAD'>{
+</span>58 <span style=''></span><span style='background: #F0ADAD'>    markerCodec ::
+</span>59 <span style=''></span><span style='background: #F0ADAD'>      MetadataBlocks.codec
+</span>60 <span style=''></span><span style='background: #F0ADAD'>        .flatZip { blocks =&gt;
+</span>61 <span style=''></span><span style='background: #F0ADAD'>          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]
+</span>62 <span style=''></span><span style='background: #F0ADAD'>          AudioBits.codec
+</span>63 <span style=''></span><span style='background: #F0ADAD'>        }
+</span>64 <span style=''></span><span style='background: #F0ADAD'>  }.dropUnits</span><span style='background: #AEF1AE'>.as[Flac]</span><span style=''>
+</span>65 <span style=''>
+</span>66 <span style=''>  </span><span style='background: #AEF1AE'>def from</span><span style=''>(is: InputStream): Attempt[DecodeResult[Flac]] = </span><span style='background: #AEF1AE'>codec.decode(BitVector(is.readAllBytes))</span><span style=''>
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          54
+        </td>
+        <td>
+          185
+        </td>
+        <td>
+          2035
+          -
+          2062
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          ByteVector(&quot;fLaC&quot;.getBytes)
+        </td>
+      </tr><tr>
+        <td>
+          54
+        </td>
+        <td>
+          73
+        </td>
+        <td>
+          2046
+          -
+          2061
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          getBytes
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          &quot;fLaC&quot;.getBytes
+        </td>
+      </tr><tr>
+        <td>
+          54
+        </td>
+        <td>
+          317
+        </td>
+        <td>
+          2026
+          -
+          2063
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          constant
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          constant(ByteVector(&quot;fLaC&quot;.getBytes))
+        </td>
+      </tr><tr>
+        <td>
+          56
+        </td>
+        <td>
+          264
+        </td>
+        <td>
+          2092
+          -
+          2310
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          as
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits.as[Flac]
+        </td>
+      </tr><tr>
+        <td>
+          57
+        </td>
+        <td>
+          148
+        </td>
+        <td>
+          2098
+          -
+          2287
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }
+        </td>
+      </tr><tr>
+        <td>
+          59
+        </td>
+        <td>
+          80
+        </td>
+        <td>
+          2119
+          -
+          2287
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          flatZip
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }
+        </td>
+      </tr><tr>
+        <td>
+          60
+        </td>
+        <td>
+          285
+        </td>
+        <td>
+          2210
+          -
+          2221
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          head
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          blocks.head
+        </td>
+      </tr><tr>
+        <td>
+          61
+        </td>
+        <td>
+          162
+        </td>
+        <td>
+          2262
+          -
+          2277
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          codec
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          AudioBits.codec
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          194
+        </td>
+        <td>
+          2092
+          -
+          2301
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          149
+        </td>
+        <td>
+          2092
+          -
+          2301
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          47
+        </td>
+        <td>
+          2092
+          -
+          2301
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          258
+        </td>
+        <td>
+          2092
+          -
+          2301
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          261
+        </td>
+        <td>
+          2092
+          -
+          2301
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          60
+        </td>
+        <td>
+          2092
+          -
+          2301
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          159
+        </td>
+        <td>
+          2092
+          -
+          2301
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          45
+        </td>
+        <td>
+          2092
+          -
+          2301
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          xmap
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          72
+        </td>
+        <td>
+          2092
+          -
+          2301
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          153
+        </td>
+        <td>
+          2092
+          -
+          2301
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          93
+        </td>
+        <td>
+          2092
+          -
+          2301
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          257
+        </td>
+        <td>
+          2092
+          -
+          2301
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          266
+        </td>
+        <td>
+          2092
+          -
+          2301
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          179
+        </td>
+        <td>
+          2092
+          -
+          2301
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          278
+        </td>
+        <td>
+          2092
+          -
+          2301
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          65
+        </td>
+        <td>
+          175
+        </td>
+        <td>
+          2394
+          -
+          2409
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          readAllBytes
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          is.readAllBytes
+        </td>
+      </tr><tr>
+        <td>
+          65
+        </td>
+        <td>
+          283
+        </td>
+        <td>
+          2384
+          -
+          2410
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          BitVector(is.readAllBytes)
+        </td>
+      </tr><tr>
+        <td>
+          65
+        </td>
+        <td>
+          22
+        </td>
+        <td>
+          2371
+          -
+          2411
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          decode
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          codec.decode(BitVector(is.readAllBytes))
+        </td>
+      </tr><tr>
+        <td>
+          65
+        </td>
+        <td>
+          48
+        </td>
+        <td>
+          2314
+          -
+          2322
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          from
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def from
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

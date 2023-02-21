@@ -1,0 +1,726 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>/*
+</span>2 <span style=''> * Copyright (c) 2023, Nigel Eke
+</span>3 <span style=''> * All rights reserved.
+</span>4 <span style=''> *
+</span>5 <span style=''> * Redistribution and use in source and binary forms, with or without modification,
+</span>6 <span style=''> * are permitted provided that the following conditions are met:
+</span>7 <span style=''> *
+</span>8 <span style=''> * 1. Redistributions of source code must retain the above copyright notice, this
+</span>9 <span style=''> *    list of conditions and the following disclaimer.
+</span>10 <span style=''> *
+</span>11 <span style=''> * 2. Redistributions in binary form must reproduce the above copyright notice,
+</span>12 <span style=''> *    this list of conditions and the following disclaimer in the documentation
+</span>13 <span style=''> *    and/or other materials provided with the distribution.
+</span>14 <span style=''> *
+</span>15 <span style=''> * 3. Neither the name of the copyright holder nor the names of its contributors
+</span>16 <span style=''> *    may be used to endorse or promote products derived from this software without
+</span>17 <span style=''> *    specific prior written permission.
+</span>18 <span style=''> *
+</span>19 <span style=''> * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+</span>20 <span style=''> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+</span>21 <span style=''> * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+</span>22 <span style=''> * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+</span>23 <span style=''> * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+</span>24 <span style=''> * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+</span>25 <span style=''> * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+</span>26 <span style=''> * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+</span>27 <span style=''> * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+</span>28 <span style=''> * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</span>29 <span style=''> */
+</span>30 <span style=''>
+</span>31 <span style=''>package com.nigeleke.flac4s
+</span>32 <span style=''>package codecs
+</span>33 <span style=''>package metadata
+</span>34 <span style=''>
+</span>35 <span style=''>import logger.Logger.*
+</span>36 <span style=''>
+</span>37 <span style=''>import scodec.*
+</span>38 <span style=''>import scodec.bits.*
+</span>39 <span style=''>import scodec.codecs.*
+</span>40 <span style=''>
+</span>41 <span style=''>case class StreamInfo(
+</span>42 <span style=''>    minBlockSize: Int,
+</span>43 <span style=''>    maxBlockSize: Int,
+</span>44 <span style=''>    minFrameSize: Int,
+</span>45 <span style=''>    maxFrameSize: Int,
+</span>46 <span style=''>    sampleRate: Int,
+</span>47 <span style=''>    channelCount: Int,
+</span>48 <span style=''>    bitDepth: Int,
+</span>49 <span style=''>    samplesCount: Long,
+</span>50 <span style=''>    audioDataMd5: BitVector
+</span>51 <span style=''>) extends MetadataBlock.Data
+</span>52 <span style=''>
+</span>53 <span style=''>object StreamInfo:
+</span>54 <span style=''>  //  &lt;16&gt;  The minimum block size (in samples) used in the stream.
+</span>55 <span style=''>  //  &lt;16&gt;  The maximum block size (in samples) used in the stream. (Minimum blocksize == maximum blocksize) implies a fixed-blocksize stream.
+</span>56 <span style=''>  //  &lt;24&gt;  The minimum frame size (in bytes) used in the stream. May be 0 to imply the value is not known.
+</span>57 <span style=''>  //  &lt;24&gt;  The maximum frame size (in bytes) used in the stream. May be 0 to imply the value is not known.
+</span>58 <span style=''>  //  &lt;20&gt;  Sample rate in Hz. Though 20 bits are available, the maximum sample rate is limited by the structure of frame headers to 655350Hz. Also, a value of 0 is invalid.
+</span>59 <span style=''>  //  &lt;3&gt;   (number of channels)-1. FLAC supports from 1 to 8 channels
+</span>60 <span style=''>  //  &lt;5&gt;   (bits per sample)-1. FLAC supports from 4 to 32 bits per sample. Currently the reference encoder and decoders only support up to 24 bits per sample.
+</span>61 <span style=''>  //  &lt;36&gt;  Total samples in stream. 'Samples' means inter-channel sample, i.e. one second of 44.1Khz audio will have 44100 samples regardless of the number of channels. A value of zero here means the number of total samples is unknown.
+</span>62 <span style=''>  //  &lt;128&gt; MD5 signature of the unencoded audio data. This allows the decoder to determine if an error exists in the audio data even when the error does not result in an invalid bitstream.
+</span>63 <span style=''>  //
+</span>64 <span style=''>  private val minBlockSizeCodec = </span><span style='background: #AEF1AE'>logField(&quot;minBlockSize&quot;)(uint16)</span><span style=''>
+</span>65 <span style=''>  private val maxBlockSizeCodec = </span><span style='background: #AEF1AE'>logField(&quot;maxBlockSize&quot;)(uint16)</span><span style=''>
+</span>66 <span style=''>  private val minFrameSizeCodec = </span><span style='background: #AEF1AE'>logField(&quot;minFrameSize&quot;)(uint24)</span><span style=''>
+</span>67 <span style=''>  private val maxFrameSizeCodec = </span><span style='background: #AEF1AE'>logField(&quot;maxFrameSize&quot;)(uint24)</span><span style=''>
+</span>68 <span style=''>  private val channelCountCodec = </span><span style='background: #AEF1AE'>logField(&quot;channelCount&quot;)(</span><span style='background: #F0ADAD'>uint(3)</span><span style='background: #AEF1AE'>.xmap(_ + 1, _ - 1))</span><span style=''>
+</span>69 <span style=''>  private val sampleRateCodec   = </span><span style='background: #AEF1AE'>logField(&quot;sampleRate&quot;)(uint(20))</span><span style=''>
+</span>70 <span style=''>  private val bitsDepthCodec    = </span><span style='background: #AEF1AE'>logField(&quot;bitsDepth&quot;)(</span><span style='background: #F0ADAD'>uint(5)</span><span style='background: #AEF1AE'>.xmap(_ + 1, _ - 1))</span><span style=''>
+</span>71 <span style=''>  private val samplesCountCodec = </span><span style='background: #AEF1AE'>logField(&quot;samplesCount&quot;)(ulong(36))</span><span style=''>
+</span>72 <span style=''>  private val audioDataMd5Codec = </span><span style='background: #AEF1AE'>logField(&quot;audioDataMd5&quot;)(codecs.bits(128))</span><span style=''>
+</span>73 <span style=''>
+</span>74 <span style=''>  val codec: Codec[StreamInfo] = </span><span style='background: #AEF1AE'>{
+</span>75 <span style=''></span><span style='background: #AEF1AE'>    </span><span style='background: #F0ADAD'>minBlockSizeCodec ::
+</span>76 <span style=''></span><span style='background: #F0ADAD'>      maxBlockSizeCodec ::
+</span>77 <span style=''></span><span style='background: #F0ADAD'>      minFrameSizeCodec ::
+</span>78 <span style=''></span><span style='background: #F0ADAD'>      maxFrameSizeCodec ::
+</span>79 <span style=''></span><span style='background: #F0ADAD'>      sampleRateCodec ::
+</span>80 <span style=''></span><span style='background: #F0ADAD'>      channelCountCodec ::
+</span>81 <span style=''></span><span style='background: #F0ADAD'>      bitsDepthCodec ::
+</span>82 <span style=''></span><span style='background: #F0ADAD'>      samplesCountCodec ::
+</span>83 <span style=''></span><span style='background: #F0ADAD'>      audioDataMd5Codec</span><span style='background: #AEF1AE'>
+</span>84 <span style=''></span><span style='background: #AEF1AE'>  }.as[StreamInfo]</span><span style=''>
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          104
+        </td>
+        <td>
+          3303
+          -
+          3335
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;minBlockSize&quot;)(uint16)
+        </td>
+      </tr><tr>
+        <td>
+          64
+        </td>
+        <td>
+          301
+        </td>
+        <td>
+          3370
+          -
+          3402
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;maxBlockSize&quot;)(uint16)
+        </td>
+      </tr><tr>
+        <td>
+          65
+        </td>
+        <td>
+          196
+        </td>
+        <td>
+          3437
+          -
+          3469
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;minFrameSize&quot;)(uint24)
+        </td>
+      </tr><tr>
+        <td>
+          66
+        </td>
+        <td>
+          64
+        </td>
+        <td>
+          3504
+          -
+          3536
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;maxFrameSize&quot;)(uint24)
+        </td>
+      </tr><tr>
+        <td>
+          67
+        </td>
+        <td>
+          83
+        </td>
+        <td>
+          3596
+          -
+          3603
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          uint
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          uint(3)
+        </td>
+      </tr><tr>
+        <td>
+          67
+        </td>
+        <td>
+          262
+        </td>
+        <td>
+          3571
+          -
+          3623
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;channelCount&quot;)(uint(3).xmap(_ + 1, _ - 1))
+        </td>
+      </tr><tr>
+        <td>
+          67
+        </td>
+        <td>
+          207
+        </td>
+        <td>
+          3596
+          -
+          3622
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          xmap
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          uint(3).xmap(_ + 1, _ - 1)
+        </td>
+      </tr><tr>
+        <td>
+          68
+        </td>
+        <td>
+          295
+        </td>
+        <td>
+          3658
+          -
+          3690
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;sampleRate&quot;)(uint(20))
+        </td>
+      </tr><tr>
+        <td>
+          68
+        </td>
+        <td>
+          174
+        </td>
+        <td>
+          3681
+          -
+          3689
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          uint
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          uint(20)
+        </td>
+      </tr><tr>
+        <td>
+          69
+        </td>
+        <td>
+          191
+        </td>
+        <td>
+          3747
+          -
+          3754
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          uint
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          uint(5)
+        </td>
+      </tr><tr>
+        <td>
+          69
+        </td>
+        <td>
+          117
+        </td>
+        <td>
+          3725
+          -
+          3774
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;bitsDepth&quot;)(uint(5).xmap(_ + 1, _ - 1))
+        </td>
+      </tr><tr>
+        <td>
+          69
+        </td>
+        <td>
+          302
+        </td>
+        <td>
+          3747
+          -
+          3773
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          xmap
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          uint(5).xmap(_ + 1, _ - 1)
+        </td>
+      </tr><tr>
+        <td>
+          70
+        </td>
+        <td>
+          78
+        </td>
+        <td>
+          3809
+          -
+          3844
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;samplesCount&quot;)(ulong(36))
+        </td>
+      </tr><tr>
+        <td>
+          70
+        </td>
+        <td>
+          263
+        </td>
+        <td>
+          3834
+          -
+          3843
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ulong
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          ulong(36)
+        </td>
+      </tr><tr>
+        <td>
+          71
+        </td>
+        <td>
+          91
+        </td>
+        <td>
+          3904
+          -
+          3920
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          bits
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          codecs.bits(128)
+        </td>
+      </tr><tr>
+        <td>
+          71
+        </td>
+        <td>
+          219
+        </td>
+        <td>
+          3879
+          -
+          3921
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;audioDataMd5&quot;)(codecs.bits(128))
+        </td>
+      </tr><tr>
+        <td>
+          73
+        </td>
+        <td>
+          290
+        </td>
+        <td>
+          3956
+          -
+          4209
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          as
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    minBlockSizeCodec ::\n      maxBlockSizeCodec ::\n      minFrameSizeCodec ::\n      maxFrameSizeCodec ::\n      sampleRateCodec ::\n      channelCountCodec ::\n      bitsDepthCodec ::\n      samplesCountCodec ::\n      audioDataMd5Codec\n  }.as[StreamInfo]
+        </td>
+      </tr><tr>
+        <td>
+          74
+        </td>
+        <td>
+          170
+        </td>
+        <td>
+          3962
+          -
+          4190
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          minBlockSizeCodec ::\n      maxBlockSizeCodec ::\n      minFrameSizeCodec ::\n      maxFrameSizeCodec ::\n      sampleRateCodec ::\n      channelCountCodec ::\n      bitsDepthCodec ::\n      samplesCountCodec ::\n      audioDataMd5Codec
+        </td>
+      </tr><tr>
+        <td>
+          75
+        </td>
+        <td>
+          99
+        </td>
+        <td>
+          3989
+          -
+          4190
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          maxBlockSizeCodec ::\n      minFrameSizeCodec ::\n      maxFrameSizeCodec ::\n      sampleRateCodec ::\n      channelCountCodec ::\n      bitsDepthCodec ::\n      samplesCountCodec ::\n      audioDataMd5Codec
+        </td>
+      </tr><tr>
+        <td>
+          76
+        </td>
+        <td>
+          316
+        </td>
+        <td>
+          4016
+          -
+          4190
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          minFrameSizeCodec ::\n      maxFrameSizeCodec ::\n      sampleRateCodec ::\n      channelCountCodec ::\n      bitsDepthCodec ::\n      samplesCountCodec ::\n      audioDataMd5Codec
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          192
+        </td>
+        <td>
+          4043
+          -
+          4190
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          maxFrameSizeCodec ::\n      sampleRateCodec ::\n      channelCountCodec ::\n      bitsDepthCodec ::\n      samplesCountCodec ::\n      audioDataMd5Codec
+        </td>
+      </tr><tr>
+        <td>
+          78
+        </td>
+        <td>
+          79
+        </td>
+        <td>
+          4070
+          -
+          4190
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          sampleRateCodec ::\n      channelCountCodec ::\n      bitsDepthCodec ::\n      samplesCountCodec ::\n      audioDataMd5Codec
+        </td>
+      </tr><tr>
+        <td>
+          79
+        </td>
+        <td>
+          272
+        </td>
+        <td>
+          4095
+          -
+          4190
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          channelCountCodec ::\n      bitsDepthCodec ::\n      samplesCountCodec ::\n      audioDataMd5Codec
+        </td>
+      </tr><tr>
+        <td>
+          80
+        </td>
+        <td>
+          200
+        </td>
+        <td>
+          4122
+          -
+          4190
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          bitsDepthCodec ::\n      samplesCountCodec ::\n      audioDataMd5Codec
+        </td>
+      </tr><tr>
+        <td>
+          81
+        </td>
+        <td>
+          88
+        </td>
+        <td>
+          4146
+          -
+          4190
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          samplesCountCodec ::\n      audioDataMd5Codec
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

@@ -1,0 +1,553 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          com/nigeleke/flac4s/codecs/metadata/Picture.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>/*
+</span>2 <span style=''> * Copyright (c) 2023, Nigel Eke
+</span>3 <span style=''> * All rights reserved.
+</span>4 <span style=''> *
+</span>5 <span style=''> * Redistribution and use in source and binary forms, with or without modification,
+</span>6 <span style=''> * are permitted provided that the following conditions are met:
+</span>7 <span style=''> *
+</span>8 <span style=''> * 1. Redistributions of source code must retain the above copyright notice, this
+</span>9 <span style=''> *    list of conditions and the following disclaimer.
+</span>10 <span style=''> *
+</span>11 <span style=''> * 2. Redistributions in binary form must reproduce the above copyright notice,
+</span>12 <span style=''> *    this list of conditions and the following disclaimer in the documentation
+</span>13 <span style=''> *    and/or other materials provided with the distribution.
+</span>14 <span style=''> *
+</span>15 <span style=''> * 3. Neither the name of the copyright holder nor the names of its contributors
+</span>16 <span style=''> *    may be used to endorse or promote products derived from this software without
+</span>17 <span style=''> *    specific prior written permission.
+</span>18 <span style=''> *
+</span>19 <span style=''> * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+</span>20 <span style=''> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+</span>21 <span style=''> * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+</span>22 <span style=''> * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+</span>23 <span style=''> * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+</span>24 <span style=''> * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+</span>25 <span style=''> * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+</span>26 <span style=''> * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+</span>27 <span style=''> * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+</span>28 <span style=''> * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</span>29 <span style=''> */
+</span>30 <span style=''>
+</span>31 <span style=''>package com.nigeleke.flac4s
+</span>32 <span style=''>package codecs
+</span>33 <span style=''>package metadata
+</span>34 <span style=''>
+</span>35 <span style=''>import logger.Logger.*
+</span>36 <span style=''>
+</span>37 <span style=''>import scodec.*
+</span>38 <span style=''>import scodec.bits.*
+</span>39 <span style=''>import scodec.codecs.*
+</span>40 <span style=''>
+</span>41 <span style=''>case class Picture(pictureType: Long,
+</span>42 <span style=''>                   description: String,
+</span>43 <span style=''>                   width: Long,
+</span>44 <span style=''>                   height: Long,
+</span>45 <span style=''>                   colourDepth: Long,
+</span>46 <span style=''>                   coloursCount: Long,
+</span>47 <span style=''>                   dataSize: Long,
+</span>48 <span style=''>                   data: BitVector
+</span>49 <span style=''>) extends MetadataBlock.Data
+</span>50 <span style=''>
+</span>51 <span style=''>object Picture:
+</span>52 <span style=''>
+</span>53 <span style=''>  //  &lt;32&gt;  The picture type according to the ID3v2 APIC frame:
+</span>54 <span style=''>  //        0 - Other
+</span>55 <span style=''>  //        1 - 32x32 pixels 'file icon' (PNG only)
+</span>56 <span style=''>  //        2 - Other file icon
+</span>57 <span style=''>  //        3 - Cover (front)
+</span>58 <span style=''>  //        4 - Cover (back)
+</span>59 <span style=''>  //        5 - Leaflet page
+</span>60 <span style=''>  //        6 - Media (e.g. label side of CD)
+</span>61 <span style=''>  //        7 - Lead artist/lead performer/soloist
+</span>62 <span style=''>  //        8 - Artist/performer
+</span>63 <span style=''>  //        9 - Conductor
+</span>64 <span style=''>  //        10 - Band/Orchestra
+</span>65 <span style=''>  //        11 - Composer
+</span>66 <span style=''>  //        12 - Lyricist/text writer
+</span>67 <span style=''>  //        13 - Recording Location
+</span>68 <span style=''>  //        14 - During recording
+</span>69 <span style=''>  //        15 - During performance
+</span>70 <span style=''>  //        16 - Movie/video screen capture
+</span>71 <span style=''>  //        17 - A bright coloured fish
+</span>72 <span style=''>  //        18 - Illustration
+</span>73 <span style=''>  //        19 - Band/artist logotype
+</span>74 <span style=''>  //        20 - Publisher/Studio logotype
+</span>75 <span style=''>  //        Others are reserved and should not be used. There may only be one each of picture type 1 and 2 in a file.
+</span>76 <span style=''>  //  &lt;32&gt;	The length of the MIME type string in bytes.
+</span>77 <span style=''>  //  &lt;n*8&gt;	The MIME type string, in printable ASCII characters 0x20-0x7e. The MIME type may also be --&gt; to signify that the data part is a URL of the picture instead of the picture data itself.
+</span>78 <span style=''>  //  &lt;32&gt;	The length of the description string in bytes.
+</span>79 <span style=''>  //  &lt;n*8&gt;	The description of the picture, in UTF-8.
+</span>80 <span style=''>  //  &lt;32&gt;	The width of the picture in pixels.
+</span>81 <span style=''>  //  &lt;32&gt;	The height of the picture in pixels.
+</span>82 <span style=''>  //  &lt;32&gt;	The color depth of the picture in bits-per-pixel.
+</span>83 <span style=''>  //  &lt;32&gt;	For indexed-color pictures (e.g. GIF), the number of colors used, or 0 for non-indexed pictures.
+</span>84 <span style=''>  //  &lt;32&gt;	The length of the picture data in bytes.
+</span>85 <span style=''>  //  &lt;n*8&gt;	The binary picture data.
+</span>86 <span style=''>  //
+</span>87 <span style=''>  private val pictureTypeCodec  = </span><span style='background: #AEF1AE'>logField(&quot;pictureType&quot;)(uint32)</span><span style=''>
+</span>88 <span style=''>  private val descriptionCodec  = </span><span style='background: #AEF1AE'>logField(&quot;description&quot;)(ascii32)</span><span style=''>
+</span>89 <span style=''>  private val widthCodec        = </span><span style='background: #AEF1AE'>logField(&quot;width&quot;)(uint32)</span><span style=''>
+</span>90 <span style=''>  private val heightCodec       = </span><span style='background: #AEF1AE'>logField(&quot;height&quot;)(uint32)</span><span style=''>
+</span>91 <span style=''>  private val colourDepthCodec  = </span><span style='background: #AEF1AE'>logField(&quot;colourDepth&quot;)(uint32)</span><span style=''>
+</span>92 <span style=''>  private val coloursCountCodec = </span><span style='background: #AEF1AE'>logField(&quot;coloursCount&quot;)(uint32)</span><span style=''>
+</span>93 <span style=''>  private val dataCodec         = </span><span style='background: #AEF1AE'>logField(&quot;data&quot;)(uint32.flatZip { size =&gt; codecs.bits(size * 8) })</span><span style=''>
+</span>94 <span style=''>
+</span>95 <span style=''>  </span><span style='background: #AEF1AE'>def codec</span><span style=''>: Codec[Picture] = </span><span style='background: #AEF1AE'>{
+</span>96 <span style=''></span><span style='background: #AEF1AE'>    </span><span style='background: #F0ADAD'>pictureTypeCodec ::
+</span>97 <span style=''></span><span style='background: #F0ADAD'>      descriptionCodec ::
+</span>98 <span style=''></span><span style='background: #F0ADAD'>      widthCodec ::
+</span>99 <span style=''></span><span style='background: #F0ADAD'>      heightCodec ::
+</span>100 <span style=''></span><span style='background: #F0ADAD'>      colourDepthCodec ::
+</span>101 <span style=''></span><span style='background: #F0ADAD'>      coloursCountCodec ::
+</span>102 <span style=''></span><span style='background: #F0ADAD'>      dataCodec</span><span style='background: #AEF1AE'>
+</span>103 <span style=''></span><span style='background: #AEF1AE'>  }.as[Picture]</span><span style=''>
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          86
+        </td>
+        <td>
+          236
+        </td>
+        <td>
+          3746
+          -
+          3777
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;pictureType&quot;)(uint32)
+        </td>
+      </tr><tr>
+        <td>
+          87
+        </td>
+        <td>
+          109
+        </td>
+        <td>
+          3812
+          -
+          3844
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;description&quot;)(ascii32)
+        </td>
+      </tr><tr>
+        <td>
+          88
+        </td>
+        <td>
+          314
+        </td>
+        <td>
+          3879
+          -
+          3904
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;width&quot;)(uint32)
+        </td>
+      </tr><tr>
+        <td>
+          89
+        </td>
+        <td>
+          186
+        </td>
+        <td>
+          3939
+          -
+          3965
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;height&quot;)(uint32)
+        </td>
+      </tr><tr>
+        <td>
+          90
+        </td>
+        <td>
+          127
+        </td>
+        <td>
+          4000
+          -
+          4031
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;colourDepth&quot;)(uint32)
+        </td>
+      </tr><tr>
+        <td>
+          91
+        </td>
+        <td>
+          9
+        </td>
+        <td>
+          4066
+          -
+          4098
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;coloursCount&quot;)(uint32)
+        </td>
+      </tr><tr>
+        <td>
+          92
+        </td>
+        <td>
+          210
+        </td>
+        <td>
+          4133
+          -
+          4199
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;data&quot;)(uint32.flatZip { size =&gt; codecs.bits(size * 8) })
+        </td>
+      </tr><tr>
+        <td>
+          92
+        </td>
+        <td>
+          291
+        </td>
+        <td>
+          4175
+          -
+          4196
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          bits
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          codecs.bits(size * 8)
+        </td>
+      </tr><tr>
+        <td>
+          92
+        </td>
+        <td>
+          87
+        </td>
+        <td>
+          4150
+          -
+          4198
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          flatZip
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          uint32.flatZip { size =&gt; codecs.bits(size * 8) }
+        </td>
+      </tr><tr>
+        <td>
+          94
+        </td>
+        <td>
+          94
+        </td>
+        <td>
+          4203
+          -
+          4212
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          codec
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def codec
+        </td>
+      </tr><tr>
+        <td>
+          94
+        </td>
+        <td>
+          221
+        </td>
+        <td>
+          4231
+          -
+          4408
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          as
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    pictureTypeCodec ::\n      descriptionCodec ::\n      widthCodec ::\n      heightCodec ::\n      colourDepthCodec ::\n      coloursCountCodec ::\n      dataCodec\n  }.as[Picture]
+        </td>
+      </tr><tr>
+        <td>
+          95
+        </td>
+        <td>
+          110
+        </td>
+        <td>
+          4237
+          -
+          4392
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          pictureTypeCodec ::\n      descriptionCodec ::\n      widthCodec ::\n      heightCodec ::\n      colourDepthCodec ::\n      coloursCountCodec ::\n      dataCodec
+        </td>
+      </tr><tr>
+        <td>
+          96
+        </td>
+        <td>
+          305
+        </td>
+        <td>
+          4263
+          -
+          4392
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          descriptionCodec ::\n      widthCodec ::\n      heightCodec ::\n      colourDepthCodec ::\n      coloursCountCodec ::\n      dataCodec
+        </td>
+      </tr><tr>
+        <td>
+          97
+        </td>
+        <td>
+          187
+        </td>
+        <td>
+          4289
+          -
+          4392
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          widthCodec ::\n      heightCodec ::\n      colourDepthCodec ::\n      coloursCountCodec ::\n      dataCodec
+        </td>
+      </tr><tr>
+        <td>
+          98
+        </td>
+        <td>
+          128
+        </td>
+        <td>
+          4309
+          -
+          4392
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          heightCodec ::\n      colourDepthCodec ::\n      coloursCountCodec ::\n      dataCodec
+        </td>
+      </tr><tr>
+        <td>
+          99
+        </td>
+        <td>
+          3
+        </td>
+        <td>
+          4330
+          -
+          4392
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          colourDepthCodec ::\n      coloursCountCodec ::\n      dataCodec
+        </td>
+      </tr><tr>
+        <td>
+          100
+        </td>
+        <td>
+          211
+        </td>
+        <td>
+          4356
+          -
+          4392
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          coloursCountCodec ::\n      dataCodec
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>

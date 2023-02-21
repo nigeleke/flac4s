@@ -1,0 +1,1238 @@
+<scoverage 
+statement-count="317" statements-invoked="120" statement-rate="37.85" branch-rate="66.67" version="1.0" timestamp="1677001218917">
+    <packages>
+        <package name="com.nigeleke.flac4s.codecs" statement-count="27" statements-invoked="8" statement-rate="29.63">
+            <classes>
+                <class 
+                name="com.nigeleke.flac4s.codecs.Flac$" filename="com/nigeleke/flac4s/codecs/Flac.scala" statement-count="27" statements-invoked="8" statement-rate="29.63" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs/Flac$/$anonfun" statement-count="16" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="$anonfun" start="2092" end="2301" line="63" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="$anonfun" start="2092" end="2301" line="63" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="$anonfun" start="2092" end="2301" line="63" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="$anonfun" start="2210" end="2221" line="60" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="$anonfun" start="2092" end="2301" line="63" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="$anonfun" start="2092" end="2301" line="63" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="$anonfun" start="2092" end="2301" line="63" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="$anonfun" start="2092" end="2301" line="63" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="$anonfun" start="2092" end="2301" line="63" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="$anonfun" start="2092" end="2301" line="63" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="$anonfun" start="2262" end="2277" line="61" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="$anonfun" start="2092" end="2301" line="63" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="$anonfun" start="2092" end="2301" line="63" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="$anonfun" start="2092" end="2301" line="63" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="$anonfun" start="2092" end="2301" line="63" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="$anonfun" start="2092" end="2301" line="63" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs/Flac$/&lt;init&gt;" statement-count="7" statements-invoked="4" statement-rate="57.14" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="&lt;init&gt;" start="2035" end="2062" line="54" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="&lt;init&gt;" start="2119" end="2287" line="59" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="&lt;init&gt;" start="2046" end="2061" line="54" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="&lt;init&gt;" start="2098" end="2287" line="57" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="&lt;init&gt;" start="2092" end="2310" line="56" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="&lt;init&gt;" start="2092" end="2301" line="63" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="&lt;init&gt;" start="2026" end="2063" line="54" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs/Flac$/from" statement-count="4" statements-invoked="4" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="from" start="2394" end="2409" line="65" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="from" start="2384" end="2410" line="65" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="from" start="2371" end="2411" line="65" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs" class="Flac$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.Flac$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/Flac.scala" method="from" start="2314" end="2322" line="65" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+            </classes>
+        </package>
+        <package name="com.nigeleke.flac4s.codecs.audio" statement-count="3" statements-invoked="3" statement-rate="100.00">
+            <classes>
+                <class 
+                name="com.nigeleke.flac4s.codecs.audio.AudioBits$" filename="com/nigeleke/flac4s/codecs/audio/AudioBits.scala" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.audio/AudioBits$/codec" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.audio" class="AudioBits$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.audio.AudioBits$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/audio/AudioBits.scala" method="codec" start="1799" end="1857" line="43" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.audio" class="AudioBits$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.audio.AudioBits$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/audio/AudioBits.scala" method="codec" start="1831" end="1856" line="43" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.audio" class="AudioBits$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.audio.AudioBits$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/audio/AudioBits.scala" method="codec" start="1787" end="1796" line="43" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+            </classes>
+        </package>
+        <package 
+        name="com.nigeleke.flac4s.codecs.metadata" statement-count="272" statements-invoked="98" statement-rate="36.03">
+            <classes>
+                <class 
+                name="com.nigeleke.flac4s.codecs.metadata.Picture$" filename="com/nigeleke/flac4s/codecs/metadata/Picture.scala" statement-count="17" statements-invoked="11" statement-rate="64.71" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/Picture$/codec" statement-count="8" statements-invoked="2" statement-rate="25.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Picture$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Picture$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Picture.scala" method="codec" start="4237" end="4392" line="95" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Picture$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Picture$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Picture.scala" method="codec" start="4309" end="4392" line="98" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Picture$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Picture$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Picture.scala" method="codec" start="4356" end="4392" line="100" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Picture$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Picture$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Picture.scala" method="codec" start="4289" end="4392" line="97" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Picture$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Picture$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Picture.scala" method="codec" start="4203" end="4212" line="94" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Picture$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Picture$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Picture.scala" method="codec" start="4330" end="4392" line="99" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Picture$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Picture$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Picture.scala" method="codec" start="4231" end="4408" line="94" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Picture$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Picture$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Picture.scala" method="codec" start="4263" end="4392" line="96" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/Picture$/&lt;init&gt;" statement-count="8" statements-invoked="8" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Picture$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Picture$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Picture.scala" method="&lt;init&gt;" start="3746" end="3777" line="86" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Picture$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Picture$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Picture.scala" method="&lt;init&gt;" start="4000" end="4031" line="90" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Picture$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Picture$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Picture.scala" method="&lt;init&gt;" start="3812" end="3844" line="87" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Picture$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Picture$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Picture.scala" method="&lt;init&gt;" start="4133" end="4199" line="92" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Picture$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Picture$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Picture.scala" method="&lt;init&gt;" start="3939" end="3965" line="89" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Picture$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Picture$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Picture.scala" method="&lt;init&gt;" start="4150" end="4198" line="92" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Picture$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Picture$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Picture.scala" method="&lt;init&gt;" start="4066" end="4098" line="91" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Picture$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Picture$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Picture.scala" method="&lt;init&gt;" start="3879" end="3904" line="88" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/Picture$/$anonfun" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Picture$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Picture$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Picture.scala" method="$anonfun" start="4175" end="4196" line="92" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" filename="com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" statement-count="26" statements-invoked="5" statement-rate="19.23" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/SeekPoint$/$anonfun" statement-count="18" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="$anonfun" start="2348" end="2432" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="$anonfun" start="2348" end="2432" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="$anonfun" start="2348" end="2432" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="$anonfun" start="2348" end="2432" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="$anonfun" start="2348" end="2432" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="$anonfun" start="2348" end="2432" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="$anonfun" start="2348" end="2432" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="$anonfun" start="2348" end="2432" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="$anonfun" start="2348" end="2432" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="$anonfun" start="2348" end="2432" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="$anonfun" start="2348" end="2432" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="$anonfun" start="2348" end="2432" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="$anonfun" start="2348" end="2432" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="$anonfun" start="2348" end="2432" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="$anonfun" start="2348" end="2432" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="$anonfun" start="2348" end="2432" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="$anonfun" start="2348" end="2432" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="$anonfun" start="2348" end="2432" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/SeekPoint$/codec" statement-count="5" statements-invoked="2" statement-rate="40.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="codec" start="2375" end="2418" line="52" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="codec" start="2348" end="2446" line="51" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="codec" start="2354" end="2418" line="52" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="codec" start="2348" end="2432" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="codec" start="2318" end="2327" line="51" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/SeekPoint$/&lt;init&gt;" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="&lt;init&gt;" start="2213" end="2243" line="48" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="&lt;init&gt;" start="2283" end="2314" line="49" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekPoint$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekPoint$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekPoint.scala" method="&lt;init&gt;" start="2142" end="2173" line="47" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" filename="com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" statement-count="25" statements-invoked="15" statement-rate="60.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/StreamInfo$/&lt;init&gt;" statement-count="25" statements-invoked="15" statement-rate="60.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="4122" end="4190" line="80" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="3747" end="3754" line="69" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="3596" end="3603" line="67" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="3303" end="3335" line="63" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="3658" end="3690" line="68" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="3571" end="3623" line="67" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="4016" end="4190" line="76" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="3370" end="3402" line="64" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="3437" end="3469" line="65" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="3904" end="3920" line="71" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="3504" end="3536" line="66" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="4070" end="4190" line="78" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="4146" end="4190" line="81" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="3596" end="3622" line="67" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="3681" end="3689" line="68" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="3879" end="3921" line="71" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="4043" end="4190" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="3809" end="3844" line="70" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="3989" end="4190" line="75" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="3725" end="3774" line="69" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="3834" end="3843" line="70" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="4095" end="4190" line="79" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="3956" end="4209" line="73" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="3747" end="3773" line="69" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="StreamInfo$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.StreamInfo$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/StreamInfo.scala" method="&lt;init&gt;" start="3962" end="4190" line="74" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" filename="com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" statement-count="58" statements-invoked="13" statement-rate="22.41" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/CuesheetTrack$/$anonfun" statement-count="38" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="$anonfun" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/CuesheetTrack$/&lt;init&gt;" statement-count="20" statements-invoked="13" statement-rate="65.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="4033" end="4098" line="65" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="4249" end="4410" line="70" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="3905" end="3930" line="63" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="4162" end="4204" line="67" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="3807" end="3834" line="62" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="3660" end="3693" line="60" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="4320" end="4410" line="73" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="3824" end="3833" line="62" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="3684" end="3692" line="60" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="3741" end="3771" line="61" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="4243" end="4442" line="69" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="4063" end="4096" line="65" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="4301" end="4410" line="72" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="4243" end="4424" line="77" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="4137" end="4205" line="67" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="4342" end="4410" line="74" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="4275" end="4410" line="71" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="4054" end="4097" line="65" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="4370" end="4410" line="75" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrack$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrack$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala" method="&lt;init&gt;" start="3966" end="3997" line="64" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="com.nigeleke.flac4s.codecs.metadata.SeekTable$" filename="com/nigeleke/flac4s/codecs/metadata/SeekTable.scala" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/SeekTable$/codec" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="SeekTable$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.SeekTable$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekTable.scala" method="codec" start="1881" end="1890" line="45" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="com.nigeleke.flac4s.codecs.metadata.Padding$" filename="com/nigeleke/flac4s/codecs/metadata/Padding.scala" statement-count="3" statements-invoked="2" statement-rate="66.67" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/Padding$/codec" statement-count="3" statements-invoked="2" statement-rate="66.67" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Padding$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Padding$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Padding.scala" method="codec" start="1914" end="1946" line="44" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Padding$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Padding$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Padding.scala" method="codec" start="1850" end="1859" line="44" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Padding$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Padding$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Padding.scala" method="codec" start="1914" end="1934" line="44" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrackIndex$" filename="com/nigeleke/flac4s/codecs/metadata/CuesheetTrackIndex.scala" statement-count="10" statements-invoked="8" statement-rate="80.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/CuesheetTrackIndex$/&lt;init&gt;" statement-count="10" statements-invoked="8" statement-rate="80.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrackIndex$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrackIndex$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrackIndex.scala" method="&lt;init&gt;" start="2611" end="2622" line="50" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrackIndex$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrackIndex$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrackIndex.scala" method="&lt;init&gt;" start="2671" end="2760" line="53" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrackIndex$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrackIndex$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrackIndex.scala" method="&lt;init&gt;" start="2672" end="2697" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrackIndex$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrackIndex$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrackIndex.scala" method="&lt;init&gt;" start="2581" end="2624" line="50" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrackIndex$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrackIndex$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrackIndex.scala" method="&lt;init&gt;" start="2602" end="2623" line="50" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrackIndex$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrackIndex$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrackIndex.scala" method="&lt;init&gt;" start="2671" end="2730" line="53" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrackIndex$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrackIndex$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrackIndex.scala" method="&lt;init&gt;" start="2526" end="2550" line="49" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrackIndex$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrackIndex$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrackIndex.scala" method="&lt;init&gt;" start="2474" end="2482" line="48" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrackIndex$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrackIndex$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrackIndex.scala" method="&lt;init&gt;" start="2611" end="2622" line="50" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="CuesheetTrackIndex$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.CuesheetTrackIndex$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/CuesheetTrackIndex.scala" method="&lt;init&gt;" start="2455" end="2483" line="48" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="com.nigeleke.flac4s.codecs.metadata.Application$" filename="com/nigeleke/flac4s/codecs/metadata/Application.scala" statement-count="8" statements-invoked="6" statement-rate="75.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/Application$/codec" statement-count="4" statements-invoked="2" statement-rate="50.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Application$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Application$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Application.scala" method="codec" start="2253" end="2332" line="51" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Application$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Application$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Application.scala" method="codec" start="2254" end="2315" line="51" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Application$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Application$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Application.scala" method="codec" start="2276" end="2315" line="51" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Application$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Application$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Application.scala" method="codec" start="2181" end="2190" line="50" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/Application$/&lt;init&gt;" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Application$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Application$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Application.scala" method="&lt;init&gt;" start="2048" end="2081" line="47" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/Application$/applicationDataCodec" statement-count="3" statements-invoked="3" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Application$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Application$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Application.scala" method="applicationDataCodec" start="2130" end="2177" line="48" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Application$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Application$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Application.scala" method="applicationDataCodec" start="2158" end="2176" line="48" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Application$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Application$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Application.scala" method="applicationDataCodec" start="2084" end="2116" line="48" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="com.nigeleke.flac4s.codecs.metadata.MetadataBlocks$" filename="com/nigeleke/flac4s/codecs/metadata/MetadataBlocks.scala" statement-count="10" statements-invoked="7" statement-rate="70.00" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/MetadataBlocks$/$anonfun" statement-count="9" statements-invoked="6" statement-rate="66.67" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlocks$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlocks$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlocks.scala" method="$anonfun" start="2553" end="2557" line="61" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlocks$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlocks$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlocks.scala" method="$anonfun" start="2577" end="2637" line="62" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlocks$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlocks$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlocks.scala" method="$anonfun" start="2577" end="2637" line="62" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlocks$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlocks$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlocks.scala" method="$anonfun" start="2545" end="2565" line="61" branch="true" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlocks$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlocks$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlocks.scala" method="$anonfun" start="2545" end="2565" line="61" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlocks$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlocks$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlocks.scala" method="$anonfun" start="2553" end="2564" line="61" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlocks$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlocks$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlocks.scala" method="$anonfun" start="2625" end="2636" line="62" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlocks$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlocks$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlocks.scala" method="$anonfun" start="2654" end="2665" line="63" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlocks$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlocks$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlocks.scala" method="$anonfun" start="2598" end="2613" line="62" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/MetadataBlocks$/&lt;init&gt;" statement-count="1" statements-invoked="1" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlocks$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlocks$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlocks.scala" method="&lt;init&gt;" start="2468" end="2666" line="63" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" filename="com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" statement-count="43" statements-invoked="12" statement-rate="27.91" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/Cuesheet$/codec" statement-count="7" statements-invoked="2" statement-rate="28.57" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="codec" start="4155" end="4277" line="63" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="codec" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="codec" start="4149" end="4304" line="62" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="codec" start="4084" end="4093" line="62" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="codec" start="4243" end="4277" line="66" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="codec" start="4216" end="4277" line="65" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="codec" start="4183" end="4277" line="64" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/Cuesheet$/$anonfun" statement-count="26" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="$anonfun" start="4149" end="4291" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/Cuesheet$/&lt;init&gt;" statement-count="10" statements-invoked="10" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="&lt;init&gt;" start="4023" end="4080" line="60" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="&lt;init&gt;" start="4042" end="4079" line="60" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="&lt;init&gt;" start="3865" end="3895" line="58" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="&lt;init&gt;" start="3926" end="3992" line="59" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="&lt;init&gt;" start="3947" end="3991" line="59" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="&lt;init&gt;" start="3789" end="3824" line="57" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="&lt;init&gt;" start="3695" end="3748" line="56" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="&lt;init&gt;" start="3815" end="3823" line="57" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="&lt;init&gt;" start="3956" end="3990" line="59" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="Cuesheet$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.Cuesheet$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/Cuesheet.scala" method="&lt;init&gt;" start="3721" end="3747" line="56" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="com.nigeleke.flac4s.codecs.metadata.$anon" filename="com/nigeleke/flac4s/codecs/metadata/SeekTable.scala" statement-count="11" statements-invoked="6" statement-rate="54.55" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/$anon/decode" statement-count="6" statements-invoked="6" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="$anon" class-type="Class" full-class-name="com.nigeleke.flac4s.codecs.metadata.$anon" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekTable.scala" method="decode" start="2178" end="2239" line="52" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="$anon" class-type="Class" full-class-name="com.nigeleke.flac4s.codecs.metadata.$anon" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekTable.scala" method="decode" start="2178" end="2226" line="52" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="$anon" class-type="Class" full-class-name="com.nigeleke.flac4s.codecs.metadata.$anon" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekTable.scala" method="decode" start="2021" end="2040" line="50" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="$anon" class-type="Class" full-class-name="com.nigeleke.flac4s.codecs.metadata.$anon" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekTable.scala" method="decode" start="2178" end="2247" line="52" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="$anon" class-type="Class" full-class-name="com.nigeleke.flac4s.codecs.metadata.$anon" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekTable.scala" method="decode" start="2188" end="2208" line="52" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="$anon" class-type="Class" full-class-name="com.nigeleke.flac4s.codecs.metadata.$anon" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekTable.scala" method="decode" start="2210" end="2225" line="52" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/$anon/sizeBound" statement-count="3" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="$anon" class-type="Class" full-class-name="com.nigeleke.flac4s.codecs.metadata.$anon" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekTable.scala" method="sizeBound" start="2454" end="2485" line="57" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="$anon" class-type="Class" full-class-name="com.nigeleke.flac4s.codecs.metadata.$anon" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekTable.scala" method="sizeBound" start="2438" end="2486" line="57" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="$anon" class-type="Class" full-class-name="com.nigeleke.flac4s.codecs.metadata.$anon" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekTable.scala" method="sizeBound" start="2402" end="2424" line="57" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/$anon/encode" statement-count="2" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="$anon" class-type="Class" full-class-name="com.nigeleke.flac4s.codecs.metadata.$anon" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekTable.scala" method="encode" start="2331" end="2350" line="55" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="$anon" class-type="Class" full-class-name="com.nigeleke.flac4s.codecs.metadata.$anon" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/SeekTable.scala" method="encode" start="2391" end="2394" line="55" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" filename="com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" statement-count="42" statements-invoked="8" statement-rate="19.05" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/MetadataBlock$/$anonfun" statement-count="14" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="$anonfun" start="3524" end="3533" line="89" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="$anonfun" start="3469" end="3547" line="90" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="$anonfun" start="3469" end="3547" line="90" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="$anonfun" start="2240" end="2249" line="57" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="$anonfun" start="3469" end="3547" line="90" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="$anonfun" start="3469" end="3547" line="90" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="$anonfun" start="3469" end="3547" line="90" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="$anonfun" start="3469" end="3547" line="90" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="$anonfun" start="3469" end="3547" line="90" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="$anonfun" start="3469" end="3547" line="90" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="$anonfun" start="3469" end="3547" line="90" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="$anonfun" start="3469" end="3547" line="90" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="$anonfun" start="3469" end="3547" line="90" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="$anonfun" start="3469" end="3547" line="90" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/MetadataBlock$/&lt;init&gt;" statement-count="12" statements-invoked="6" statement-rate="50.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="&lt;init&gt;" start="2209" end="2250" line="57" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="&lt;init&gt;" start="3469" end="3547" line="90" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="&lt;init&gt;" start="2209" end="2216" line="57" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="&lt;init&gt;" start="2339" end="2404" line="60" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="&lt;init&gt;" start="3469" end="3565" line="88" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="&lt;init&gt;" start="3469" end="3537" line="88" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="&lt;init&gt;" start="2131" end="2155" line="56" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="&lt;init&gt;" start="2187" end="2251" line="57" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="&lt;init&gt;" start="2283" end="2309" line="58" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="&lt;init&gt;" start="3504" end="3533" line="89" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="&lt;init&gt;" start="2345" end="2389" line="61" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="&lt;init&gt;" start="2360" end="2389" line="61" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/MetadataBlock$/dataCodec" statement-count="16" statements-invoked="2" statement-rate="12.50" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="dataCodec" start="3260" end="3273" line="83" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="dataCodec" start="3058" end="3083" line="79" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="dataCodec" start="2945" end="2966" line="76" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="dataCodec" start="3215" end="3228" line="82" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="dataCodec" start="3028" end="3274" line="78" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="dataCodec" start="3119" end="3136" line="80" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="dataCodec" start="3028" end="3084" line="79" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="dataCodec" start="3307" end="3322" line="84" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="dataCodec" start="3169" end="3183" line="81" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="dataCodec" start="3028" end="3184" line="78" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="dataCodec" start="3028" end="3041" line="78" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="dataCodec" start="3028" end="3431" line="78" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="dataCodec" start="3028" end="3323" line="78" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="dataCodec" start="3028" end="3137" line="78" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="dataCodec" start="3028" end="3374" line="78" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="MetadataBlock$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.MetadataBlock$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/MetadataBlock.scala" method="dataCodec" start="3028" end="3229" line="78" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+                <class 
+                name="com.nigeleke.flac4s.codecs.metadata.VorbisComment$" filename="com/nigeleke/flac4s/codecs/metadata/VorbisComment.scala" statement-count="18" statements-invoked="4" statement-rate="22.22" branch-rate="100.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/VorbisComment$/&lt;init&gt;" statement-count="6" statements-invoked="4" statement-rate="66.67" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="VorbisComment$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.VorbisComment$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/VorbisComment.scala" method="&lt;init&gt;" start="2887" end="2918" line="64" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="VorbisComment$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.VorbisComment$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/VorbisComment.scala" method="&lt;init&gt;" start="2756" end="2785" line="61" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="VorbisComment$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.VorbisComment$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/VorbisComment.scala" method="&lt;init&gt;" start="2956" end="3006" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="VorbisComment$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.VorbisComment$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/VorbisComment.scala" method="&lt;init&gt;" start="2956" end="3024" line="66" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="VorbisComment$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.VorbisComment$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/VorbisComment.scala" method="&lt;init&gt;" start="2614" end="2642" line="58" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="VorbisComment$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.VorbisComment$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/VorbisComment.scala" method="&lt;init&gt;" start="2963" end="2991" line="67" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.codecs.metadata/VorbisComment$/$anonfun" statement-count="12" statements-invoked="0" statement-rate="0.00" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="VorbisComment$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.VorbisComment$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/VorbisComment.scala" method="$anonfun" start="2956" end="3006" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="VorbisComment$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.VorbisComment$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/VorbisComment.scala" method="$anonfun" start="2956" end="3006" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="VorbisComment$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.VorbisComment$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/VorbisComment.scala" method="$anonfun" start="2956" end="3006" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="VorbisComment$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.VorbisComment$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/VorbisComment.scala" method="$anonfun" start="2956" end="3006" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="VorbisComment$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.VorbisComment$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/VorbisComment.scala" method="$anonfun" start="2956" end="3006" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="VorbisComment$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.VorbisComment$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/VorbisComment.scala" method="$anonfun" start="2956" end="3006" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="VorbisComment$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.VorbisComment$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/VorbisComment.scala" method="$anonfun" start="2956" end="3006" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="VorbisComment$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.VorbisComment$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/VorbisComment.scala" method="$anonfun" start="2956" end="3006" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="VorbisComment$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.VorbisComment$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/VorbisComment.scala" method="$anonfun" start="2956" end="3006" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="VorbisComment$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.VorbisComment$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/VorbisComment.scala" method="$anonfun" start="2956" end="3006" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="VorbisComment$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.VorbisComment$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/VorbisComment.scala" method="$anonfun" start="2956" end="3006" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.codecs.metadata" class="VorbisComment$" class-type="Object" full-class-name="com.nigeleke.flac4s.codecs.metadata.VorbisComment$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/codecs/metadata/VorbisComment.scala" method="$anonfun" start="2956" end="3006" line="68" branch="false" invocation-count="0" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+            </classes>
+</package>
+        <package name="com.nigeleke.flac4s.logger" statement-count="15" statements-invoked="11" statement-rate="73.33">
+            <classes>
+                <class 
+                name="com.nigeleke.flac4s.logger.Logger$" filename="com/nigeleke/flac4s/logger/Logger.scala" statement-count="15" statements-invoked="11" statement-rate="73.33" branch-rate="0.00">
+                    <methods>
+                        <method 
+                        name="com.nigeleke.flac4s.logger/Logger$/log" statement-count="7" statements-invoked="3" statement-rate="42.86" branch-rate="0.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.logger" class="Logger$" class-type="Object" full-class-name="com.nigeleke.flac4s.logger.Logger$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/logger/Logger.scala" method="log" start="2076" end="2109" line="49" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.logger" class="Logger$" class-type="Object" full-class-name="com.nigeleke.flac4s.logger.Logger$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/logger/Logger.scala" method="log" start="2076" end="2109" line="49" branch="true" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.logger" class="Logger$" class-type="Object" full-class-name="com.nigeleke.flac4s.logger.Logger$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/logger/Logger.scala" method="log" start="2005" end="2031" line="47" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.logger" class="Logger$" class-type="Object" full-class-name="com.nigeleke.flac4s.logger.Logger$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/logger/Logger.scala" method="log" start="1915" end="1930" line="46" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.logger" class="Logger$" class-type="Object" full-class-name="com.nigeleke.flac4s.logger.Logger$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/logger/Logger.scala" method="log" start="2089" end="2101" line="49" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.logger" class="Logger$" class-type="Object" full-class-name="com.nigeleke.flac4s.logger.Logger$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/logger/Logger.scala" method="log" start="2089" end="2095" line="49" branch="false" invocation-count="0" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.logger" class="Logger$" class-type="Object" full-class-name="com.nigeleke.flac4s.logger.Logger$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/logger/Logger.scala" method="log" start="2035" end="2051" line="47" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.logger/Logger$/logAudio" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.logger" class="Logger$" class-type="Object" full-class-name="com.nigeleke.flac4s.logger.Logger$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/logger/Logger.scala" method="logAudio" start="2362" end="2394" line="54" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.logger" class="Logger$" class-type="Object" full-class-name="com.nigeleke.flac4s.logger.Logger$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/logger/Logger.scala" method="logAudio" start="2312" end="2324" line="54" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.logger/Logger$/logMetadata" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.logger" class="Logger$" class-type="Object" full-class-name="com.nigeleke.flac4s.logger.Logger$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/logger/Logger.scala" method="logMetadata" start="2274" end="2309" line="53" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.logger" class="Logger$" class-type="Object" full-class-name="com.nigeleke.flac4s.logger.Logger$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/logger/Logger.scala" method="logMetadata" start="2222" end="2237" line="53" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.logger/Logger$/&lt;init&gt;" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.logger" class="Logger$" class-type="Object" full-class-name="com.nigeleke.flac4s.logger.Logger$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/logger/Logger.scala" method="&lt;init&gt;" start="1811" end="1854" line="41" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.logger" class="Logger$" class-type="Object" full-class-name="com.nigeleke.flac4s.logger.Logger$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/logger/Logger.scala" method="&lt;init&gt;" start="1741" end="1761" line="40" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                        <method 
+                        name="com.nigeleke.flac4s.logger/Logger$/logField" statement-count="2" statements-invoked="2" statement-rate="100.00" branch-rate="100.00">
+                            <statements>
+                                <statement 
+                                package="com.nigeleke.flac4s.logger" class="Logger$" class-type="Object" full-class-name="com.nigeleke.flac4s.logger.Logger$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/logger/Logger.scala" method="logField" start="2187" end="2219" line="52" branch="false" invocation-count="1" ignored="false">
+</statement>
+                                <statement 
+                                package="com.nigeleke.flac4s.logger" class="Logger$" class-type="Object" full-class-name="com.nigeleke.flac4s.logger.Logger$" source="/home/runner/work/flac4s/flac4s/core/src/main/scala/com/nigeleke/flac4s/logger/Logger.scala" method="logField" start="2137" end="2149" line="52" branch="false" invocation-count="1" ignored="false">
+</statement>
+                            </statements>
+</method>
+                    </methods>
+</class>
+            </classes>
+        </package>
+    </packages>
+</scoverage>

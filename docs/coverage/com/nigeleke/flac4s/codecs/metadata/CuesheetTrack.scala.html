@@ -1,0 +1,1512 @@
+<html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title id="title">
+          com/nigeleke/flac4s/codecs/metadata/CuesheetTrack.scala.html
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/css/theme.default.min.css" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.20.1/js/jquery.tablesorter.min.js"></script><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/><script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script><script type="text/javascript">
+        $(document).ready(function() {$(".tablesorter").tablesorter();});
+      </script>
+        <style>
+          table.codegrid { font-family: monospace; font-size: 12px; width: auto!important; }table.statementlist { width: auto!important; font-size: 13px; } table.codegrid td { padding: 0!important; border: 0!important } table td.linenumber { width: 40px!important; } 
+        </style>
+      </head>
+      <body style="font-family: monospace;">
+        <ul class="nav nav-tabs">
+          <li>
+            <a href="#codegrid" data-toggle="tab">Codegrid</a>
+          </li>
+          <li>
+            <a href="#statementlist" data-toggle="tab">Statement List</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="codegrid">
+            <pre style='font-size: 12pt; font-family: courier, monospace;'>1 <span style=''>/*
+</span>2 <span style=''> * Copyright (c) 2023, Nigel Eke
+</span>3 <span style=''> * All rights reserved.
+</span>4 <span style=''> *
+</span>5 <span style=''> * Redistribution and use in source and binary forms, with or without modification,
+</span>6 <span style=''> * are permitted provided that the following conditions are met:
+</span>7 <span style=''> *
+</span>8 <span style=''> * 1. Redistributions of source code must retain the above copyright notice, this
+</span>9 <span style=''> *    list of conditions and the following disclaimer.
+</span>10 <span style=''> *
+</span>11 <span style=''> * 2. Redistributions in binary form must reproduce the above copyright notice,
+</span>12 <span style=''> *    this list of conditions and the following disclaimer in the documentation
+</span>13 <span style=''> *    and/or other materials provided with the distribution.
+</span>14 <span style=''> *
+</span>15 <span style=''> * 3. Neither the name of the copyright holder nor the names of its contributors
+</span>16 <span style=''> *    may be used to endorse or promote products derived from this software without
+</span>17 <span style=''> *    specific prior written permission.
+</span>18 <span style=''> *
+</span>19 <span style=''> * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+</span>20 <span style=''> * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+</span>21 <span style=''> * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+</span>22 <span style=''> * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+</span>23 <span style=''> * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+</span>24 <span style=''> * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+</span>25 <span style=''> * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+</span>26 <span style=''> * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+</span>27 <span style=''> * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+</span>28 <span style=''> * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</span>29 <span style=''> */
+</span>30 <span style=''>
+</span>31 <span style=''>package com.nigeleke.flac4s
+</span>32 <span style=''>package codecs
+</span>33 <span style=''>package metadata
+</span>34 <span style=''>
+</span>35 <span style=''>import logger.Logger.*
+</span>36 <span style=''>
+</span>37 <span style=''>import scodec.*
+</span>38 <span style=''>import scodec.bits.*
+</span>39 <span style=''>import scodec.codecs.*
+</span>40 <span style=''>
+</span>41 <span style=''>case class CuesheetTrack(
+</span>42 <span style=''>    trackOffset: ByteVector,
+</span>43 <span style=''>    trackNumber: Int,
+</span>44 <span style=''>    isrc: ByteVector,
+</span>45 <span style=''>    isAudio: Boolean,
+</span>46 <span style=''>    isPreEmphasis: Boolean,
+</span>47 <span style=''>    trackIndex: Vector[CuesheetTrackIndex]
+</span>48 <span style=''>)
+</span>49 <span style=''>
+</span>50 <span style=''>object CuesheetTrack:
+</span>51 <span style=''>
+</span>52 <span style=''>  //  &lt;64&gt;                  Track offset in samples, relative to the beginning of the FLAC audio stream. It is the offset to the first index point of the track. (Note how this differs from CD-DA, where the track's offset in the TOC is that of the track's INDEX 01 even if there is an INDEX 00.) For CD-DA, the offset must be evenly divisible by 588 samples (588 samples = 44100 samples/sec * 1/75th of a sec).
+</span>53 <span style=''>  //  &lt;8&gt;                   Track number. A track number of 0 is not allowed to avoid conflicting with the CD-DA spec, which reserves this for the lead-in. For CD-DA the number must be 1-99, or 170 for the lead-out; for non-CD-DA, the track number must for 255 for the lead-out. It is not required but encouraged to start with track 1 and increase sequentially. Track numbers must be unique within a CUESHEET.
+</span>54 <span style=''>  //  &lt;12*8&gt;                Track ISRC. This is a 12-digit alphanumeric code; see here and here. A value of 12 ASCII NUL characters may be used to denote absence of an ISRC.
+</span>55 <span style=''>  //  &lt;1&gt;                   The track type: 0 for audio, 1 for non-audio. This corresponds to the CD-DA Q-channel control bit 3.
+</span>56 <span style=''>  //  &lt;1&gt;                   The pre-emphasis flag: 0 for no pre-emphasis, 1 for pre-emphasis. This corresponds to the CD-DA Q-channel control bit 5; see here.
+</span>57 <span style=''>  //  &lt;6+13*8&gt;              Reserved. All bits must be set to zero.
+</span>58 <span style=''>  //  &lt;8&gt;                   The number of track index points. There must be at least one index in every track in a CUESHEET except for the lead-out track, which must have zero. For CD-DA, this number may be no more than 100.
+</span>59 <span style=''>  //  CUESHEET_TRACK_INDEX+ For all tracks except the lead-out track, one or more track index points.
+</span>60 <span style=''>  //
+</span>61 <span style=''>  private val trackOffsetCodec   = </span><span style='background: #AEF1AE'>logField(&quot;trackOffset&quot;)(bytes(8))</span><span style=''> // long(64)
+</span>62 <span style=''>  private val trackNumberCodec   = </span><span style='background: #AEF1AE'>logField(&quot;trackNumber&quot;)(uint8)</span><span style=''>
+</span>63 <span style=''>  private val isrcCodec          = </span><span style='background: #AEF1AE'>logField(&quot;isrc&quot;)(bytes(12))</span><span style=''>       // fixedSizeBytes(12, ascii)
+</span>64 <span style=''>  private val isAudioCodec       = </span><span style='background: #AEF1AE'>logField(&quot;isAudio&quot;)(bool)</span><span style=''>
+</span>65 <span style=''>  private val isPreEmphasisCodec = </span><span style='background: #AEF1AE'>logField(&quot;isPreEmphasis&quot;)(bool)</span><span style=''>
+</span>66 <span style=''>  private val reservedCodec      = </span><span style='background: #AEF1AE'>logField(&quot;reserved&quot;)(constant(BitVector.fill(6 + 13 * 8)(false)))</span><span style=''>
+</span>67 <span style=''>  private val trackIndexesCodec =
+</span>68 <span style=''>    </span><span style='background: #AEF1AE'>logField(&quot;trackIndexes&quot;)(vectorOfN(uint8, CuesheetTrackIndex.codec))</span><span style=''>
+</span>69 <span style=''>
+</span>70 <span style=''>  val codec: Codec[CuesheetTrack] = </span><span style='background: #F0ADAD'>{
+</span>71 <span style=''></span><span style='background: #F0ADAD'>    trackOffsetCodec ::
+</span>72 <span style=''></span><span style='background: #F0ADAD'>      trackNumberCodec ::
+</span>73 <span style=''></span><span style='background: #F0ADAD'>      isrcCodec ::
+</span>74 <span style=''></span><span style='background: #F0ADAD'>      isAudioCodec ::
+</span>75 <span style=''></span><span style='background: #F0ADAD'>      isPreEmphasisCodec ::
+</span>76 <span style=''></span><span style='background: #F0ADAD'>      reservedCodec ::
+</span>77 <span style=''></span><span style='background: #F0ADAD'>      trackIndexesCodec
+</span>78 <span style=''></span><span style='background: #F0ADAD'>  }.dropUnits</span><span style='background: #AEF1AE'>.as[CuesheetTrack]</span><span style=''>
+</span></pre>
+          </div>
+          <div class="tab-pane" id="statementlist">
+            <table cellspacing="0" cellpadding="0" class="table statementlist">
+      <tr>
+        <th>Line</th>
+        <th>Stmt Id</th>
+        <th>Pos</th>
+        <th>Tree</th>
+        <th>Symbol</th>
+        <th>Tests</th>
+        <th>Code</th>
+      </tr><tr>
+        <td>
+          60
+        </td>
+        <td>
+          247
+        </td>
+        <td>
+          3660
+          -
+          3693
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;trackOffset&quot;)(bytes(8))
+        </td>
+      </tr><tr>
+        <td>
+          60
+        </td>
+        <td>
+          130
+        </td>
+        <td>
+          3684
+          -
+          3692
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          bytes
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          bytes(8)
+        </td>
+      </tr><tr>
+        <td>
+          61
+        </td>
+        <td>
+          13
+        </td>
+        <td>
+          3741
+          -
+          3771
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;trackNumber&quot;)(uint8)
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          265
+        </td>
+        <td>
+          3807
+          -
+          3834
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;isrc&quot;)(bytes(12))
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          139
+        </td>
+        <td>
+          3824
+          -
+          3833
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          bytes
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          bytes(12)
+        </td>
+      </tr><tr>
+        <td>
+          63
+        </td>
+        <td>
+          29
+        </td>
+        <td>
+          3905
+          -
+          3930
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;isAudio&quot;)(bool)
+        </td>
+      </tr><tr>
+        <td>
+          64
+        </td>
+        <td>
+          224
+        </td>
+        <td>
+          3966
+          -
+          3997
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;isPreEmphasis&quot;)(bool)
+        </td>
+      </tr><tr>
+        <td>
+          65
+        </td>
+        <td>
+          164
+        </td>
+        <td>
+          4033
+          -
+          4098
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;reserved&quot;)(constant(BitVector.fill(6 + 13 * 8)(false)))
+        </td>
+      </tr><tr>
+        <td>
+          65
+        </td>
+        <td>
+          240
+        </td>
+        <td>
+          4063
+          -
+          4096
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          fill
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          BitVector.fill(6 + 13 * 8)(false)
+        </td>
+      </tr><tr>
+        <td>
+          65
+        </td>
+        <td>
+          51
+        </td>
+        <td>
+          4054
+          -
+          4097
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          constant
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          constant(BitVector.fill(6 + 13 * 8)(false))
+        </td>
+      </tr><tr>
+        <td>
+          67
+        </td>
+        <td>
+          5
+        </td>
+        <td>
+          4162
+          -
+          4204
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          vectorOfN
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          vectorOfN(uint8, CuesheetTrackIndex.codec)
+        </td>
+      </tr><tr>
+        <td>
+          67
+        </td>
+        <td>
+          132
+        </td>
+        <td>
+          4137
+          -
+          4205
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;trackIndexes&quot;)(vectorOfN(uint8, CuesheetTrackIndex.codec))
+        </td>
+      </tr><tr>
+        <td>
+          69
+        </td>
+        <td>
+          267
+        </td>
+        <td>
+          4243
+          -
+          4442
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          as
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits.as[CuesheetTrack]
+        </td>
+      </tr><tr>
+        <td>
+          70
+        </td>
+        <td>
+          140
+        </td>
+        <td>
+          4249
+          -
+          4410
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec
+        </td>
+      </tr><tr>
+        <td>
+          71
+        </td>
+        <td>
+          21
+        </td>
+        <td>
+          4275
+          -
+          4410
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec
+        </td>
+      </tr><tr>
+        <td>
+          72
+        </td>
+        <td>
+          225
+        </td>
+        <td>
+          4301
+          -
+          4410
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec
+        </td>
+      </tr><tr>
+        <td>
+          73
+        </td>
+        <td>
+          160
+        </td>
+        <td>
+          4320
+          -
+          4410
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec
+        </td>
+      </tr><tr>
+        <td>
+          74
+        </td>
+        <td>
+          57
+        </td>
+        <td>
+          4342
+          -
+          4410
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec
+        </td>
+      </tr><tr>
+        <td>
+          75
+        </td>
+        <td>
+          242
+        </td>
+        <td>
+          4370
+          -
+          4410
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          ::
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          reservedCodec ::\n      trackIndexesCodec
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          209
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          254
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          23
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          131
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          17
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          107
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          38
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          256
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          229
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          232
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          124
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          106
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          268
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          208
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          55
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          58
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          49
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          157
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          43
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          276
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          249
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          25
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          19
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          234
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          147
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          156
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          255
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          129
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          xmap
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          213
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          150
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          114
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          123
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          126
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          108
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          18
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          24
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          6
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          77
+        </td>
+        <td>
+          233
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr>
+    </table>
+          </div>
+        </div>
+      </body>
+    </html>
