@@ -1,20 +1,35 @@
-name := "flac"
+val scala3Version = "3.3.0-RC3"
 
-version := "0.1"
+organizationName := "Nigel Eke"
+organization     := "nigeleke"
 
-scalaVersion := "2.12.4"
+val bsd3License = Some(HeaderLicense.BSD3Clause("2023", "Nigel Eke"))
 
-resolvers += "Sonatype Public" at "https://oss.sonatype.org/content/groups/public/"
+val configVersion     = "1.4.2"
+val scalatestVersion  = "3.2.11"
+val scodecBitsVersion = "1.1.34"
+val scodecCoreVersion = "2.2.0"
 
-libraryDependencies ++= Seq(
+lazy val root = project
+  .in(file("."))
+  .disablePlugins(HeaderPlugin)
+  .settings(
+    name           := "flac4s",
+    publish / skip := true
+  )
+  .aggregate(core)
 
-  "org.scodec" %% "scodec-bits" % "1.1.5",
-  "org.scodec" %% "scodec-core" % "1.10.3",
-  "org.scodec" %% "scodec-scalaz" % "1.4.1a",
-  "org.scodec" %% "scodec-stream" % "1.0.1",
-
-//  "org.scalactic" %% "scalactic" % "3.0.4",
-
-  "org.scalacheck" %% "scalacheck" % "1.13.4" % "test",
-  "org.scalatest" %% "scalatest" % "3.0.4" % "test"
-)
+lazy val core = project
+  .settings(
+    name           := "flac4s-core",
+    scalaVersion   := scala3Version,
+    headerLicense  := bsd3License,
+    publish / skip := true,
+    libraryDependencies ++= Seq(
+      "com.typesafe"   % "config"      % configVersion,
+      "org.scodec"    %% "scodec-bits" % scodecBitsVersion,
+      "org.scodec"    %% "scodec-core" % scodecCoreVersion,
+      "org.scalactic" %% "scalactic"   % scalatestVersion,
+      "org.scalatest" %% "scalatest"   % scalatestVersion % "test"
+    )
+  )
