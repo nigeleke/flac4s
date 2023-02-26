@@ -8,7 +8,7 @@ val bsd3License = Some(HeaderLicense.BSD3Clause("2023", "Nigel Eke"))
 val configVersion     = "1.4.2"
 val scalatestVersion  = "3.2.11"
 val scodecBitsVersion = "1.1.34"
-val scodecCoreVersion = "2.2.0"
+val scodecCoreVersion = "2.2.1"
 
 lazy val root = project
   .in(file("."))
