@@ -50,6 +50,6 @@ object Logger:
     then logToStdOut((name | codec), name)
     else (name | codec)
 
-  def logField[A](name: String)(codec: Codec[A])  = log(name, LogLevel.Field)(codec)
+  def logField[A](name: String)(codec: Codec[A])    = log(name, LogLevel.Field)(codec)
   def logMetadata[A](name: String)(codec: Codec[A]) = log(name, LogLevel.Metadata)(codec)
-  def logAudio[A](name: String)(codec: Codec[A])  = log(name, LogLevel.Audio)(codec)
+  def logAudio[A](name: String)(codec: Codec[A])    = log(name, LogLevel.Audio)(codec)
