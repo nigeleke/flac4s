@@ -108,31 +108,7 @@
           56
         </td>
         <td>
-          67
-        </td>
-        <td>
-          3695
-          -
-          3748
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          logField
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          logField(&quot;catalogNumber&quot;)(fixedSizeBytes(128, ascii))
-        </td>
-      </tr><tr>
-        <td>
-          56
-        </td>
-        <td>
-          275
+          168
         </td>
         <td>
           3721
@@ -153,15 +129,15 @@
         </td>
       </tr><tr>
         <td>
-          57
+          56
         </td>
         <td>
-          145
+          278
         </td>
         <td>
-          3789
+          3695
           -
-          3824
+          3748
         </td>
         <td>
           Apply
@@ -173,14 +149,14 @@
           
         </td>
         <td style="background: #AEF1AE">
-          logField(&quot;leadInSamples&quot;)(bytes(8))
+          logField(&quot;catalogNumber&quot;)(fixedSizeBytes(128, ascii))
         </td>
       </tr><tr>
         <td>
           57
         </td>
         <td>
-          37
+          241
         </td>
         <td>
           3815
@@ -201,10 +177,34 @@
         </td>
       </tr><tr>
         <td>
+          57
+        </td>
+        <td>
+          46
+        </td>
+        <td>
+          3789
+          -
+          3824
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;leadInSamples&quot;)(bytes(8))
+        </td>
+      </tr><tr>
+        <td>
           58
         </td>
         <td>
-          280
+          121
         </td>
         <td>
           3865
@@ -228,7 +228,7 @@
           59
         </td>
         <td>
-          169
+          68
         </td>
         <td>
           3926
@@ -252,31 +252,7 @@
           59
         </td>
         <td>
-          46
-        </td>
-        <td>
-          3947
-          -
-          3991
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          constant
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          constant(BitVector.fill(7 + 258 * 8)(false))
-        </td>
-      </tr><tr>
-        <td>
-          59
-        </td>
-        <td>
-          243
+          145
         </td>
         <td>
           3956
@@ -297,34 +273,34 @@
         </td>
       </tr><tr>
         <td>
-          60
+          59
         </td>
         <td>
-          122
+          257
         </td>
         <td>
-          4023
+          3947
           -
-          4080
+          3991
         </td>
         <td>
           Apply
         </td>
         <td>
-          logField
+          constant
         </td>
         <td>
           
         </td>
         <td style="background: #AEF1AE">
-          logField(&quot;tracks&quot;)(vectorOfN(uint8, CuesheetTrack.codec))
+          constant(BitVector.fill(7 + 258 * 8)(false))
         </td>
       </tr><tr>
         <td>
           60
         </td>
         <td>
-          68
+          279
         </td>
         <td>
           4042
@@ -345,10 +321,34 @@
         </td>
       </tr><tr>
         <td>
+          60
+        </td>
+        <td>
+          33
+        </td>
+        <td>
+          4023
+          -
+          4080
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;tracks&quot;)(vectorOfN(uint8, CuesheetTrack.codec))
+        </td>
+      </tr><tr>
+        <td>
           62
         </td>
         <td>
-          259
+          167
         </td>
         <td>
           4149
@@ -372,7 +372,7 @@
           62
         </td>
         <td>
-          52
+          263
         </td>
         <td>
           4084
@@ -396,7 +396,7 @@
           63
         </td>
         <td>
-          146
+          41
         </td>
         <td>
           4155
@@ -420,7 +420,7 @@
           64
         </td>
         <td>
-          33
+          242
         </td>
         <td>
           4183
@@ -444,7 +444,7 @@
           65
         </td>
         <td>
-          281
+          134
         </td>
         <td>
           4216
@@ -468,7 +468,7 @@
           66
         </td>
         <td>
-          168
+          63
         </td>
         <td>
           4243
@@ -492,7 +492,31 @@
           68
         </td>
         <td>
-          155
+          218
+        </td>
+        <td>
+          4149
+          -
+          4291
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    catalogNumberCodec ::\n      leadInSamplesCountCodec ::\n      isCdCuesheetCodec ::\n      reservedCodec ::\n      tracksCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          68
+        </td>
+        <td>
+          245
         </td>
         <td>
           4149
@@ -516,7 +540,7 @@
           68
         </td>
         <td>
-          77
+          236
         </td>
         <td>
           4149
@@ -540,7 +564,7 @@
           68
         </td>
         <td>
-          167
+          140
         </td>
         <td>
           4149
@@ -551,31 +575,7 @@
           Apply
         </td>
         <td>
-          tail
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          {\n    catalogNumberCodec ::\n      leadInSamplesCountCodec ::\n      isCdCuesheetCodec ::\n      reservedCodec ::\n      tracksCodec\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          68
-        </td>
-        <td>
-          41
-        </td>
-        <td>
-          4149
-          -
-          4291
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          xmap
+          cons
         </td>
         <td>
           
@@ -612,30 +612,6 @@
           68
         </td>
         <td>
-          134
-        </td>
-        <td>
-          4149
-          -
-          4291
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          cons
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          {\n    catalogNumberCodec ::\n      leadInSamplesCountCodec ::\n      isCdCuesheetCodec ::\n      reservedCodec ::\n      tracksCodec\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          68
-        </td>
-        <td>
           35
         </td>
         <td>
@@ -647,7 +623,7 @@
           Apply
         </td>
         <td>
-          tail
+          cons
         </td>
         <td>
           
@@ -695,7 +671,7 @@
           Apply
         </td>
         <td>
-          apply
+          tail
         </td>
         <td>
           
@@ -708,31 +684,7 @@
           68
         </td>
         <td>
-          271
-        </td>
-        <td>
-          4149
-          -
-          4291
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          cons
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          {\n    catalogNumberCodec ::\n      leadInSamplesCountCodec ::\n      isCdCuesheetCodec ::\n      reservedCodec ::\n      tracksCodec\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          68
-        </td>
-        <td>
-          220
+          235
         </td>
         <td>
           4149
@@ -756,31 +708,7 @@
           68
         </td>
         <td>
-          238
-        </td>
-        <td>
-          4149
-          -
-          4291
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          apply
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          {\n    catalogNumberCodec ::\n      leadInSamplesCountCodec ::\n      isCdCuesheetCodec ::\n      reservedCodec ::\n      tracksCodec\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          68
-        </td>
-        <td>
-          277
+          166
         </td>
         <td>
           4149
@@ -804,7 +732,7 @@
           68
         </td>
         <td>
-          142
+          133
         </td>
         <td>
           4149
@@ -815,7 +743,7 @@
           Apply
         </td>
         <td>
-          apply
+          tail
         </td>
         <td>
           
@@ -828,7 +756,7 @@
           68
         </td>
         <td>
-          178
+          154
         </td>
         <td>
           4149
@@ -839,7 +767,7 @@
           Apply
         </td>
         <td>
-          apply
+          tail
         </td>
         <td>
           
@@ -852,7 +780,7 @@
           68
         </td>
         <td>
-          241
+          13
         </td>
         <td>
           4149
@@ -876,7 +804,31 @@
           68
         </td>
         <td>
-          163
+          76
+        </td>
+        <td>
+          4149
+          -
+          4291
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    catalogNumberCodec ::\n      leadInSamplesCountCodec ::\n      isCdCuesheetCodec ::\n      reservedCodec ::\n      tracksCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          68
+        </td>
+        <td>
+          52
         </td>
         <td>
           4149
@@ -900,7 +852,7 @@
           68
         </td>
         <td>
-          136
+          258
         </td>
         <td>
           4149
@@ -911,7 +863,7 @@
           Apply
         </td>
         <td>
-          apply
+          xmap
         </td>
         <td>
           
@@ -959,7 +911,7 @@
           Apply
         </td>
         <td>
-          cons
+          apply
         </td>
         <td>
           
@@ -972,7 +924,7 @@
           68
         </td>
         <td>
-          237
+          129
         </td>
         <td>
           4149
@@ -996,7 +948,7 @@
           68
         </td>
         <td>
-          246
+          177
         </td>
         <td>
           4149
@@ -1044,7 +996,7 @@
           68
         </td>
         <td>
-          63
+          162
         </td>
         <td>
           4149
@@ -1055,7 +1007,7 @@
           Apply
         </td>
         <td>
-          apply
+          cons
         </td>
         <td>
           
@@ -1079,7 +1031,7 @@
           Apply
         </td>
         <td>
-          tail
+          apply
         </td>
         <td>
           
@@ -1103,6 +1055,30 @@
           Apply
         </td>
         <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    catalogNumberCodec ::\n      leadInSamplesCountCodec ::\n      isCdCuesheetCodec ::\n      reservedCodec ::\n      tracksCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          68
+        </td>
+        <td>
+          275
+        </td>
+        <td>
+          4149
+          -
+          4291
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
           tail
         </td>
         <td>
@@ -1116,7 +1092,7 @@
           68
         </td>
         <td>
-          260
+          239
         </td>
         <td>
           4149
@@ -1128,6 +1104,30 @@
         </td>
         <td>
           tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          {\n    catalogNumberCodec ::\n      leadInSamplesCountCodec ::\n      isCdCuesheetCodec ::\n      reservedCodec ::\n      tracksCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          68
+        </td>
+        <td>
+          269
+        </td>
+        <td>
+          4149
+          -
+          4291
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
         </td>
         <td>
           

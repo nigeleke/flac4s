@@ -67,20 +67,11 @@
 </span>43 <span style=''>
 </span>44 <span style=''>  //  SEEKPOINT+	One or more seek points
 </span>45 <span style=''>  //
-</span>46 <span style=''>  </span><span style='background: #AEF1AE'>def codec</span><span style=''>(using header: MetadataBlock.Header): Codec[SeekTable] = {
-</span>47 <span style=''>    new Codec[SeekTable]:
-</span>48 <span style=''>
-</span>49 <span style=''>      val seekPointLength = 8 + 8 + 2
-</span>50 <span style=''>
-</span>51 <span style=''>      </span><span style='background: #AEF1AE'>override def decode</span><span style=''>(bits: BitVector): Attempt[DecodeResult[SeekTable]] =
-</span>52 <span style=''>        val pointsCount = header.length / seekPointLength
-</span>53 <span style=''>        val points      = </span><span style='background: #AEF1AE'>vectorOfN(provide(pointsCount), SeekPoint.codec).decode(bits).require</span><span style=''>
-</span>54 <span style=''>        Successful(DecodeResult(SeekTable(points.value), points.remainder))
-</span>55 <span style=''>
-</span>56 <span style=''>      </span><span style='background: #F0ADAD'>override def encode</span><span style=''>(value: SeekTable): Attempt[BitVector] = </span><span style='background: #F0ADAD'>???</span><span style=''>
-</span>57 <span style=''>
-</span>58 <span style=''>      </span><span style='background: #F0ADAD'>override def sizeBound</span><span style=''>: SizeBound = </span><span style='background: #F0ADAD'>SizeBound.exact(header.length / seekPointLength)</span><span style=''>
-</span>59 <span style=''>  }
+</span>46 <span style=''>  </span><span style='background: #AEF1AE'>def codec</span><span style=''>(using header: MetadataBlock.Header): Codec[SeekTable] =
+</span>47 <span style=''>    val seekPointLength  = 8 + 8 + 2
+</span>48 <span style=''>    val pointsCount: Int = header.length / seekPointLength
+</span>49 <span style=''>    </span><span style='background: #F0ADAD'>vectorOfN(provide(pointsCount), SeekPoint.codec)</span><span style='background: #AEF1AE'>
+</span>50 <span style=''></span><span style='background: #AEF1AE'>      .xmap(SeekTable(_), _.seekPoints)</span><span style=''>
 </span></pre>
           </div>
           <div class="tab-pane" id="statementlist">
@@ -98,7 +89,7 @@
           45
         </td>
         <td>
-          173
+          203
         </td>
         <td>
           1881
@@ -119,135 +110,15 @@
         </td>
       </tr><tr>
         <td>
-          50
+          48
         </td>
         <td>
-          193
+          11
         </td>
         <td>
-          2021
+          2079
           -
-          2040
-        </td>
-        <td>
-          DefDef
-        </td>
-        <td>
-          decode
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          override def decode
-        </td>
-      </tr><tr>
-        <td>
-          52
-        </td>
-        <td>
-          92
-        </td>
-        <td>
-          2178
-          -
-          2239
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          decode
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          vectorOfN(provide(pointsCount), SeekPoint.codec).decode(bits)
-        </td>
-      </tr><tr>
-        <td>
-          52
-        </td>
-        <td>
-          286
-        </td>
-        <td>
-          2178
-          -
-          2226
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          vectorOfN
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          vectorOfN(provide(pointsCount), SeekPoint.codec)
-        </td>
-      </tr><tr>
-        <td>
-          52
-        </td>
-        <td>
-          309
-        </td>
-        <td>
-          2178
-          -
-          2247
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          require
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          vectorOfN(provide(pointsCount), SeekPoint.codec).decode(bits).require
-        </td>
-      </tr><tr>
-        <td>
-          52
-        </td>
-        <td>
-          171
-        </td>
-        <td>
-          2188
-          -
-          2208
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          provide
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          provide(pointsCount)
-        </td>
-      </tr><tr>
-        <td>
-          52
-        </td>
-        <td>
-          102
-        </td>
-        <td>
-          2210
-          -
-          2225
+          2094
         </td>
         <td>
           Select
@@ -258,128 +129,80 @@
         <td>
           
         </td>
-        <td style="background: #AEF1AE">
+        <td style="background: #F0ADAD">
           SeekPoint.codec
         </td>
       </tr><tr>
         <td>
-          55
-        </td>
-        <td>
-          11
-        </td>
-        <td>
-          2331
-          -
-          2350
-        </td>
-        <td>
-          DefDef
-        </td>
-        <td>
-          encode
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          override def encode
-        </td>
-      </tr><tr>
-        <td>
-          55
+          48
         </td>
         <td>
           70
         </td>
         <td>
-          2391
+          2057
           -
-          2394
-        </td>
-        <td>
-          Ident
-        </td>
-        <td>
-          ???
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          ???
-        </td>
-      </tr><tr>
-        <td>
-          57
-        </td>
-        <td>
-          86
-        </td>
-        <td>
-          2454
-          -
-          2485
+          2077
         </td>
         <td>
           Apply
         </td>
         <td>
-          int2long
+          provide
         </td>
         <td>
           
         </td>
         <td style="background: #F0ADAD">
-          header.length / seekPointLength
+          provide(pointsCount)
         </td>
       </tr><tr>
         <td>
-          57
+          48
         </td>
         <td>
-          205
+          192
         </td>
         <td>
-          2438
+          2047
           -
-          2486
+          2095
         </td>
         <td>
           Apply
         </td>
         <td>
-          exact
+          vectorOfN
         </td>
         <td>
           
         </td>
         <td style="background: #F0ADAD">
-          SizeBound.exact(header.length / seekPointLength)
+          vectorOfN(provide(pointsCount), SeekPoint.codec)
         </td>
       </tr><tr>
         <td>
-          57
+          49
         </td>
         <td>
-          282
+          306
         </td>
         <td>
-          2402
+          2047
           -
-          2424
+          2135
         </td>
         <td>
-          DefDef
+          Apply
         </td>
         <td>
-          sizeBound
+          xmap
         </td>
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
-          override def sizeBound
+        <td style="background: #AEF1AE">
+          vectorOfN(provide(pointsCount), SeekPoint.codec)\n      .xmap(SeekTable(_), _.seekPoints)
         </td>
       </tr>
     </table>

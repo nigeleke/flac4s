@@ -84,8 +84,8 @@
 </span>60 <span style=''>    </span><span style='background: #AEF1AE'>MetadataBlock.codec.consume(block =&gt;
 </span>61 <span style=''></span><span style='background: #AEF1AE'>      if block.header.isLast
 </span>62 <span style=''></span><span style='background: #AEF1AE'>      then provide(</span><span style='background: #F0ADAD'>List</span><span style='background: #AEF1AE'>(block))
-</span>63 <span style=''></span><span style='background: #AEF1AE'>      else codec.xmap(blocks =&gt; block +: blocks, blocks =&gt; </span><span style='background: #F0ADAD'>blocks.tail</span><span style='background: #AEF1AE'>)
-</span>64 <span style=''></span><span style='background: #AEF1AE'>    )(blocks =&gt; </span><span style='background: #F0ADAD'>blocks.head</span><span style='background: #AEF1AE'>)</span><span style=''>
+</span>63 <span style=''></span><span style='background: #AEF1AE'>      else codec.xmap(blocks =&gt; block +: blocks, blocks =&gt; blocks.tail)
+</span>64 <span style=''></span><span style='background: #AEF1AE'>    )(blocks =&gt; blocks.head)</span><span style=''>
 </span></pre>
           </div>
           <div class="tab-pane" id="statementlist">
@@ -103,7 +103,55 @@
           61
         </td>
         <td>
-          26
+          124
+        </td>
+        <td>
+          2545
+          -
+          2565
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          provide
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          provide(List(block))
+        </td>
+      </tr><tr>
+        <td>
+          61
+        </td>
+        <td>
+          115
+        </td>
+        <td>
+          2545
+          -
+          2565
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          provide
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          provide(List(block))
+        </td>
+      </tr><tr>
+        <td>
+          61
+        </td>
+        <td>
+          189
         </td>
         <td>
           2553
@@ -127,55 +175,7 @@
           61
         </td>
         <td>
-          235
-        </td>
-        <td>
-          2545
-          -
-          2565
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          provide
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          provide(List(block))
-        </td>
-      </tr><tr>
-        <td>
-          61
-        </td>
-        <td>
-          217
-        </td>
-        <td>
-          2545
-          -
-          2565
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          provide
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          provide(List(block))
-        </td>
-      </tr><tr>
-        <td>
-          61
-        </td>
-        <td>
-          82
+          308
         </td>
         <td>
           2553
@@ -199,55 +199,7 @@
           62
         </td>
         <td>
-          125
-        </td>
-        <td>
-          2577
-          -
-          2637
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          xmap
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          codec.xmap(blocks =&gt; block +: blocks, blocks =&gt; blocks.tail)
-        </td>
-      </tr><tr>
-        <td>
-          62
-        </td>
-        <td>
-          116
-        </td>
-        <td>
-          2577
-          -
-          2637
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          xmap
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          codec.xmap(blocks =&gt; block +: blocks, blocks =&gt; blocks.tail)
-        </td>
-      </tr><tr>
-        <td>
-          62
-        </td>
-        <td>
-          190
+          95
         </td>
         <td>
           2625
@@ -263,7 +215,7 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           blocks.tail
         </td>
       </tr><tr>
@@ -271,7 +223,31 @@
           62
         </td>
         <td>
-          311
+          7
+        </td>
+        <td>
+          2577
+          -
+          2637
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          xmap
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          codec.xmap(blocks =&gt; block +: blocks, blocks =&gt; blocks.tail)
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          216
         </td>
         <td>
           2598
@@ -292,10 +268,34 @@
         </td>
       </tr><tr>
         <td>
+          62
+        </td>
+        <td>
+          287
+        </td>
+        <td>
+          2577
+          -
+          2637
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          xmap
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          codec.xmap(blocks =&gt; block +: blocks, blocks =&gt; blocks.tail)
+        </td>
+      </tr><tr>
+        <td>
           63
         </td>
         <td>
-          7
+          234
         </td>
         <td>
           2654
@@ -311,7 +311,7 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           blocks.head
         </td>
       </tr><tr>
@@ -319,7 +319,7 @@
           63
         </td>
         <td>
-          12
+          233
         </td>
         <td>
           2468

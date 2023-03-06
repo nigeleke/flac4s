@@ -79,7 +79,7 @@
 </span>55 <span style=''>  trait Data
 </span>56 <span style=''>
 </span>57 <span style=''>  private val isLastCodec    = </span><span style='background: #AEF1AE'>logField(&quot;isLast&quot;)(bool)</span><span style=''>
-</span>58 <span style=''>  private val blockTypeCodec = </span><span style='background: #AEF1AE'>logField(&quot;blockType&quot;)(</span><span style='background: #F0ADAD'>uint(7)</span><span style='background: #AEF1AE'>.xmap(Type.fromOrdinal, </span><span style='background: #F0ADAD'>_.ordinal</span><span style='background: #AEF1AE'>))</span><span style=''>
+</span>58 <span style=''>  private val blockTypeCodec = </span><span style='background: #AEF1AE'>logField(&quot;blockType&quot;)(</span><span style='background: #F0ADAD'>uint(7)</span><span style='background: #AEF1AE'>.xmap(Type.fromOrdinal, _.ordinal))</span><span style=''>
 </span>59 <span style=''>  private val lengthCodec    = </span><span style='background: #AEF1AE'>logField(&quot;length&quot;)(uint24)</span><span style=''>
 </span>60 <span style=''>
 </span>61 <span style=''>  private val headerCodec = </span><span style='background: #AEF1AE'>{
@@ -130,7 +130,7 @@
           56
         </td>
         <td>
-          40
+          248
         </td>
         <td>
           2131
@@ -154,7 +154,31 @@
           57
         </td>
         <td>
-          101
+          137
+        </td>
+        <td>
+          2187
+          -
+          2251
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;blockType&quot;)(uint(7).xmap(Type.fromOrdinal, _.ordinal))
+        </td>
+      </tr><tr>
+        <td>
+          57
+        </td>
+        <td>
+          14
         </td>
         <td>
           2209
@@ -178,7 +202,31 @@
           57
         </td>
         <td>
-          298
+          151
+        </td>
+        <td>
+          2240
+          -
+          2249
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          ordinal
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          _.ordinal
+        </td>
+      </tr><tr>
+        <td>
+          57
+        </td>
+        <td>
+          201
         </td>
         <td>
           2209
@@ -199,58 +247,10 @@
         </td>
       </tr><tr>
         <td>
-          57
-        </td>
-        <td>
-          250
-        </td>
-        <td>
-          2240
-          -
-          2249
-        </td>
-        <td>
-          Select
-        </td>
-        <td>
-          ordinal
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          _.ordinal
-        </td>
-      </tr><tr>
-        <td>
-          57
-        </td>
-        <td>
-          228
-        </td>
-        <td>
-          2187
-          -
-          2251
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          logField
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          logField(&quot;blockType&quot;)(uint(7).xmap(Type.fromOrdinal, _.ordinal))
-        </td>
-      </tr><tr>
-        <td>
           58
         </td>
         <td>
-          138
+          30
         </td>
         <td>
           2283
@@ -274,7 +274,7 @@
           60
         </td>
         <td>
-          14
+          228
         </td>
         <td>
           2339
@@ -298,7 +298,7 @@
           61
         </td>
         <td>
-          203
+          110
         </td>
         <td>
           2345
@@ -322,7 +322,7 @@
           61
         </td>
         <td>
-          152
+          304
         </td>
         <td>
           2360
@@ -346,7 +346,7 @@
           76
         </td>
         <td>
-          8
+          225
         </td>
         <td>
           2945
@@ -370,151 +370,7 @@
           78
         </td>
         <td>
-          307
-        </td>
-        <td>
-          3028
-          -
-          3274
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          typecase
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          discriminated[Data]\n      .by(provide(header.blockType))\n      .typecase(Type.Application, Application.codec)\n      .typecase(Type.Cuesheet, Cuesheet.codec)\n      .typecase(Type.Padding, Padding.codec)\n      .typecase(Type.Picture, Picture.codec)
-        </td>
-      </tr><tr>
-        <td>
-          78
-        </td>
-        <td>
-          120
-        </td>
-        <td>
-          3028
-          -
-          3184
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          typecase
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          discriminated[Data]\n      .by(provide(header.blockType))\n      .typecase(Type.Application, Application.codec)\n      .typecase(Type.Cuesheet, Cuesheet.codec)
-        </td>
-      </tr><tr>
-        <td>
-          78
-        </td>
-        <td>
-          90
-        </td>
-        <td>
-          3028
-          -
-          3041
-        </td>
-        <td>
-          Ident
-        </td>
-        <td>
-          discriminated
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          discriminated
-        </td>
-      </tr><tr>
-        <td>
-          78
-        </td>
-        <td>
-          30
-        </td>
-        <td>
-          3028
-          -
-          3431
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          typecase
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          discriminated[Data]\n      .by(provide(header.blockType))\n      .typecase(Type.Application, Application.codec)\n      .typecase(Type.Cuesheet, Cuesheet.codec)\n      .typecase(Type.Padding, Padding.codec)\n      .typecase(Type.Picture, Picture.codec)\n      .typecase(Type.SeekTable, SeekTable.codec)\n      .typecase(Type.StreamInfo, StreamInfo.codec)\n      .typecase(Type.VorbisComment, VorbisComment.codec)
-        </td>
-      </tr><tr>
-        <td>
-          78
-        </td>
-        <td>
-          111
-        </td>
-        <td>
-          3028
-          -
-          3323
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          typecase
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          discriminated[Data]\n      .by(provide(header.blockType))\n      .typecase(Type.Application, Application.codec)\n      .typecase(Type.Cuesheet, Cuesheet.codec)\n      .typecase(Type.Padding, Padding.codec)\n      .typecase(Type.Picture, Picture.codec)\n      .typecase(Type.SeekTable, SeekTable.codec)
-        </td>
-      </tr><tr>
-        <td>
-          78
-        </td>
-        <td>
-          15
-        </td>
-        <td>
-          3028
-          -
-          3137
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          typecase
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          discriminated[Data]\n      .by(provide(header.blockType))\n      .typecase(Type.Application, Application.codec)
-        </td>
-      </tr><tr>
-        <td>
-          78
-        </td>
-        <td>
-          230
+          119
         </td>
         <td>
           3028
@@ -538,7 +394,31 @@
           78
         </td>
         <td>
-          251
+          32
+        </td>
+        <td>
+          3028
+          -
+          3184
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          typecase
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          discriminated[Data]\n      .by(provide(header.blockType))\n      .typecase(Type.Application, Application.codec)\n      .typecase(Type.Cuesheet, Cuesheet.codec)
+        </td>
+      </tr><tr>
+        <td>
+          78
+        </td>
+        <td>
+          89
         </td>
         <td>
           3028
@@ -559,10 +439,130 @@
         </td>
       </tr><tr>
         <td>
+          78
+        </td>
+        <td>
+          301
+        </td>
+        <td>
+          3028
+          -
+          3041
+        </td>
+        <td>
+          Ident
+        </td>
+        <td>
+          discriminated
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          discriminated
+        </td>
+      </tr><tr>
+        <td>
+          78
+        </td>
+        <td>
+          249
+        </td>
+        <td>
+          3028
+          -
+          3431
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          typecase
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          discriminated[Data]\n      .by(provide(header.blockType))\n      .typecase(Type.Application, Application.codec)\n      .typecase(Type.Cuesheet, Cuesheet.codec)\n      .typecase(Type.Padding, Padding.codec)\n      .typecase(Type.Picture, Picture.codec)\n      .typecase(Type.SeekTable, SeekTable.codec)\n      .typecase(Type.StreamInfo, StreamInfo.codec)\n      .typecase(Type.VorbisComment, VorbisComment.codec)
+        </td>
+      </tr><tr>
+        <td>
+          78
+        </td>
+        <td>
+          15
+        </td>
+        <td>
+          3028
+          -
+          3323
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          typecase
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          discriminated[Data]\n      .by(provide(header.blockType))\n      .typecase(Type.Application, Application.codec)\n      .typecase(Type.Cuesheet, Cuesheet.codec)\n      .typecase(Type.Padding, Padding.codec)\n      .typecase(Type.Picture, Picture.codec)\n      .typecase(Type.SeekTable, SeekTable.codec)
+        </td>
+      </tr><tr>
+        <td>
+          78
+        </td>
+        <td>
+          212
+        </td>
+        <td>
+          3028
+          -
+          3274
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          typecase
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          discriminated[Data]\n      .by(provide(header.blockType))\n      .typecase(Type.Application, Application.codec)\n      .typecase(Type.Cuesheet, Cuesheet.codec)\n      .typecase(Type.Padding, Padding.codec)\n      .typecase(Type.Picture, Picture.codec)
+        </td>
+      </tr><tr>
+        <td>
+          78
+        </td>
+        <td>
+          224
+        </td>
+        <td>
+          3028
+          -
+          3137
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          typecase
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          discriminated[Data]\n      .by(provide(header.blockType))\n      .typecase(Type.Application, Application.codec)
+        </td>
+      </tr><tr>
+        <td>
           79
         </td>
         <td>
-          32
+          243
         </td>
         <td>
           3058
@@ -586,7 +586,7 @@
           79
         </td>
         <td>
-          214
+          111
         </td>
         <td>
           3028
@@ -610,7 +610,7 @@
           80
         </td>
         <td>
-          226
+          120
         </td>
         <td>
           3119
@@ -634,7 +634,7 @@
           81
         </td>
         <td>
-          112
+          8
         </td>
         <td>
           3169
@@ -658,7 +658,7 @@
           82
         </td>
         <td>
-          304
+          200
         </td>
         <td>
           3215
@@ -682,7 +682,7 @@
           83
         </td>
         <td>
-          245
+          84
         </td>
         <td>
           3260
@@ -706,7 +706,7 @@
           84
         </td>
         <td>
-          121
+          27
         </td>
         <td>
           3307
@@ -730,7 +730,7 @@
           88
         </td>
         <td>
-          202
+          112
         </td>
         <td>
           3469
@@ -754,7 +754,7 @@
           88
         </td>
         <td>
-          85
+          296
         </td>
         <td>
           3469
@@ -778,7 +778,7 @@
           89
         </td>
         <td>
-          227
+          118
         </td>
         <td>
           3524
@@ -802,7 +802,7 @@
           89
         </td>
         <td>
-          27
+          183
         </td>
         <td>
           3504
@@ -826,79 +826,7 @@
           90
         </td>
         <td>
-          119
-        </td>
-        <td>
-          3469
-          -
-          3547
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          apply
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          logMetadata(&quot;metadataBlock&quot;) {\n    headerCodec flatZip dataCodec\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          90
-        </td>
-        <td>
-          113
-        </td>
-        <td>
-          3469
-          -
-          3547
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          xmap
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          logMetadata(&quot;metadataBlock&quot;) {\n    headerCodec flatZip dataCodec\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          90
-        </td>
-        <td>
-          184
-        </td>
-        <td>
-          3469
-          -
-          3547
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          tail
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          logMetadata(&quot;metadataBlock&quot;) {\n    headerCodec flatZip dataCodec\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          90
-        </td>
-        <td>
-          133
+          26
         </td>
         <td>
           3469
@@ -922,7 +850,7 @@
           90
         </td>
         <td>
-          115
+          80
         </td>
         <td>
           3469
@@ -933,7 +861,7 @@
           Apply
         </td>
         <td>
-          apply
+          tail
         </td>
         <td>
           
@@ -946,7 +874,7 @@
           90
         </td>
         <td>
-          300
+          220
         </td>
         <td>
           3469
@@ -958,6 +886,30 @@
         </td>
         <td>
           tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          logMetadata(&quot;metadataBlock&quot;) {\n    headerCodec flatZip dataCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          90
+        </td>
+        <td>
+          202
+        </td>
+        <td>
+          3469
+          -
+          3547
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
         </td>
         <td>
           
@@ -1005,7 +957,7 @@
           Apply
         </td>
         <td>
-          tail
+          xmap
         </td>
         <td>
           
@@ -1018,7 +970,7 @@
           90
         </td>
         <td>
-          180
+          297
         </td>
         <td>
           3469
@@ -1042,7 +994,7 @@
           90
         </td>
         <td>
-          222
+          132
         </td>
         <td>
           3469
@@ -1066,7 +1018,7 @@
           90
         </td>
         <td>
-          204
+          114
         </td>
         <td>
           3469
@@ -1114,7 +1066,7 @@
           90
         </td>
         <td>
-          299
+          12
         </td>
         <td>
           3469
@@ -1126,6 +1078,54 @@
         </td>
         <td>
           apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          logMetadata(&quot;metadataBlock&quot;) {\n    headerCodec flatZip dataCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          90
+        </td>
+        <td>
+          179
+        </td>
+        <td>
+          3469
+          -
+          3547
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #F0ADAD">
+          logMetadata(&quot;metadataBlock&quot;) {\n    headerCodec flatZip dataCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          90
+        </td>
+        <td>
+          215
+        </td>
+        <td>
+          3469
+          -
+          3547
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
         </td>
         <td>
           
