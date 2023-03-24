@@ -56,7 +56,7 @@ object MetadataBlocks:
   //
   // List[MetadataBlock] is NonEmpty as StreamInfo is a mandatory first block.
   //
-  val codec: Codec[MetadataBlocks] = 
+  val codec: Codec[MetadataBlocks] =
     MetadataBlock.codec.consume(block =>
       if block.header.isLast
       then provide(List(block))

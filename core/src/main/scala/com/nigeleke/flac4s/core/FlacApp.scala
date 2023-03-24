@@ -30,6 +30,4 @@
 
 package com.nigeleke.flac4s.core
 
-object FlacApp {
-
-}
+object FlacApp {}
