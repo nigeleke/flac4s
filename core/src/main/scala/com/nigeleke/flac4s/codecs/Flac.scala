@@ -54,7 +54,7 @@ object Flac:
 
   private val markerCodec = constant(ByteVector("fLaC".getBytes))
 
-  val codec: Codec[Flac] = {
+  private val codec: Codec[Flac] = {
     markerCodec ::
       MetadataBlocks.codec
         .flatZip { blocks =>
@@ -63,4 +63,8 @@ object Flac:
         }
   }.dropUnits.as[Flac]
 
-  def from(is: InputStream): Attempt[DecodeResult[Flac]] = codec.decode(BitVector(is.readAllBytes))
+  def from(bv: BitVector): Attempt[DecodeResult[Flac]] = codec.decode(bv)
+
+  def from(is: InputStream): Attempt[DecodeResult[Flac]] = from(BitVector(is.readAllBytes))
+
+  extension (flac: Flac) def encode: Attempt[BitVector] = codec.encode(flac)

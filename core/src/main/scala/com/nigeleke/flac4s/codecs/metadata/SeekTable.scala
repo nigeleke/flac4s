@@ -43,17 +43,8 @@ object SeekTable:
 
   //  SEEKPOINT+	One or more seek points
   //
-  def codec(using header: MetadataBlock.Header): Codec[SeekTable] = {
-    new Codec[SeekTable]:
-
-      val seekPointLength = 8 + 8 + 2
-
-      override def decode(bits: BitVector): Attempt[DecodeResult[SeekTable]] =
-        val pointsCount = header.length / seekPointLength
-        val points      = vectorOfN(provide(pointsCount), SeekPoint.codec).decode(bits).require
-        Successful(DecodeResult(SeekTable(points.value), points.remainder))
-
-      override def encode(value: SeekTable): Attempt[BitVector] = ???
-
-      override def sizeBound: SizeBound = SizeBound.exact(header.length / seekPointLength)
-  }
+  def codec(using header: MetadataBlock.Header): Codec[SeekTable] =
+    val seekPointLength  = 8 + 8 + 2
+    val pointsCount: Int = header.length / seekPointLength
+    vectorOfN(provide(pointsCount), SeekPoint.codec)
+      .xmap(SeekTable(_), _.seekPoints)
