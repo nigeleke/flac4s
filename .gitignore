@@ -1,4 +1,6 @@
 *.iml
 .bsp/
 .idea/
+.metals/
+.vscode/
 target/
