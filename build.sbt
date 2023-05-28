@@ -6,7 +6,7 @@ organization     := "nigeleke"
 val bsd3License = Some(HeaderLicense.BSD3Clause("2023", "Nigel Eke"))
 
 val configVersion     = "1.4.2"
-val scalatestVersion  = "3.2.15"
+val scalatestVersion  = "3.2.16"
 val scodecBitsVersion = "1.1.37"
 val scodecCoreVersion = "2.2.1"
 
