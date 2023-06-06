@@ -10,6 +10,9 @@ val scalatestVersion  = "3.2.16"
 val scodecBitsVersion = "1.1.37"
 val scodecCoreVersion = "2.2.1"
 
+ThisBuild / versionScheme := Some("early-semver")
+ThisBuild / publishTo := Some(Resolver.defaultLocal)
+
 lazy val root = project
   .in(file("."))
   .disablePlugins(HeaderPlugin)
