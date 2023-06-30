@@ -11,7 +11,7 @@ val scodecBitsVersion = "1.1.37"
 val scodecCoreVersion = "2.2.1"
 
 ThisBuild / versionScheme := Some("early-semver")
-ThisBuild / publishTo := Some(Resolver.defaultLocal)
+ThisBuild / publishTo     := Some(Resolver.defaultLocal)
 
 lazy val root = project
   .in(file("."))
