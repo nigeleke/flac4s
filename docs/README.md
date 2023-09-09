@@ -30,6 +30,10 @@ Based on the [Free Lossless Audio Codec - draft-ietf-cellar-flac-07](https://dat
 * [API - Core](https://nigeleke.github.io/flac4s/core/api/index.html)
 * [Coverage Report](https://nigeleke.github.io/flac4s/coverage/index.html)
 
+## Dev-shell
+
+* `> nix develop --impure`
+
 ## Approach
 
 * flac decoder - metadata only
