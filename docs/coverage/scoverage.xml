@@ -1,5 +1,5 @@
 <scoverage 
-statement-count="314" statements-invoked="122" statement-rate="38.85" branch-rate="66.67" version="1.0" timestamp="1708394890124">
+statement-count="314" statements-invoked="122" statement-rate="38.85" branch-rate="66.67" version="1.0" timestamp="1708395174377">
     <packages>
         <package name="com.nigeleke.flac4s.codecs" statement-count="31" statements-invoked="12" statement-rate="38.71">
             <classes>
