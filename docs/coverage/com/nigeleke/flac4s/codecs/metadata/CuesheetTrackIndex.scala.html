@@ -75,8 +75,8 @@
 </span>51 <span style=''>  private val reservedCodec = </span><span style='background: #AEF1AE'>logField(&quot;reserved&quot;)(constant(hex&quot;000000&quot;))</span><span style=''>
 </span>52 <span style=''>
 </span>53 <span style=''>  val codec: Codec[CuesheetTrackIndex] =
-</span>54 <span style=''>    </span><span style='background: #F0ADAD'>(offsetCodec :: indexCodec)
-</span>55 <span style=''></span><span style='background: #F0ADAD'>      .dropRight(reservedCodec)</span><span style='background: #AEF1AE'>
+</span>54 <span style=''>    </span><span style='background: #AEF1AE'>(offsetCodec :: indexCodec)
+</span>55 <span style=''></span><span style='background: #AEF1AE'>      .dropRight(reservedCodec)
 </span>56 <span style=''></span><span style='background: #AEF1AE'>      .as[CuesheetTrackIndex]</span><span style=''>
 </span></pre>
           </div>
@@ -92,10 +92,10 @@
         <th>Code</th>
       </tr><tr>
         <td>
-          48
+          49
         </td>
         <td>
-          300
+          303
         </td>
         <td>
           2455
@@ -116,10 +116,10 @@
         </td>
       </tr><tr>
         <td>
-          48
+          49
         </td>
         <td>
-          246
+          248
         </td>
         <td>
           2474
@@ -140,10 +140,10 @@
         </td>
       </tr><tr>
         <td>
-          49
+          50
         </td>
         <td>
-          136
+          137
         </td>
         <td>
           2526
@@ -164,7 +164,7 @@
         </td>
       </tr><tr>
         <td>
-          50
+          51
         </td>
         <td>
           2
@@ -188,31 +188,31 @@
         </td>
       </tr><tr>
         <td>
-          50
+          51
         </td>
         <td>
-          199
+          151
         </td>
         <td>
-          2602
+          2611
           -
-          2623
+          2622
         </td>
         <td>
           Apply
         </td>
         <td>
-          constant
+          fromValidHex
         </td>
         <td>
           
         </td>
         <td style="background: #AEF1AE">
-          constant(hex&quot;000000&quot;)
+          hex&quot;000000&quot;
         </td>
       </tr><tr>
         <td>
-          50
+          51
         </td>
         <td>
           40
@@ -236,34 +236,58 @@
         </td>
       </tr><tr>
         <td>
-          50
+          51
         </td>
         <td>
-          150
+          201
         </td>
         <td>
-          2611
+          2602
           -
-          2622
+          2623
         </td>
         <td>
           Apply
         </td>
         <td>
-          fromValidHex
+          constant
         </td>
         <td>
           
         </td>
         <td style="background: #AEF1AE">
-          hex&quot;000000&quot;
+          constant(hex&quot;000000&quot;)
         </td>
       </tr><tr>
         <td>
-          53
+          54
         </td>
         <td>
-          295
+          101
+        </td>
+        <td>
+          2671
+          -
+          2730
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          dropRight
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          (offsetCodec :: indexCodec)\n      .dropRight(reservedCodec)
+        </td>
+      </tr><tr>
+        <td>
+          54
+        </td>
+        <td>
+          298
         </td>
         <td>
           2672
@@ -279,15 +303,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           offsetCodec :: indexCodec
         </td>
       </tr><tr>
         <td>
-          53
+          54
         </td>
         <td>
-          226
+          228
         </td>
         <td>
           2671
@@ -305,30 +329,6 @@
         </td>
         <td style="background: #AEF1AE">
           (offsetCodec :: indexCodec)\n      .dropRight(reservedCodec)\n      .as[CuesheetTrackIndex]
-        </td>
-      </tr><tr>
-        <td>
-          53
-        </td>
-        <td>
-          100
-        </td>
-        <td>
-          2671
-          -
-          2730
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          dropRight
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          (offsetCodec :: indexCodec)\n      .dropRight(reservedCodec)
         </td>
       </tr>
     </table>

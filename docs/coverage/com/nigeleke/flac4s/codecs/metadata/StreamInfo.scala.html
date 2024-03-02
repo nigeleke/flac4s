@@ -89,22 +89,22 @@
 </span>65 <span style=''>  private val maxBlockSizeCodec = </span><span style='background: #AEF1AE'>logField(&quot;maxBlockSize&quot;)(uint16)</span><span style=''>
 </span>66 <span style=''>  private val minFrameSizeCodec = </span><span style='background: #AEF1AE'>logField(&quot;minFrameSize&quot;)(uint24)</span><span style=''>
 </span>67 <span style=''>  private val maxFrameSizeCodec = </span><span style='background: #AEF1AE'>logField(&quot;maxFrameSize&quot;)(uint24)</span><span style=''>
-</span>68 <span style=''>  private val channelCountCodec = </span><span style='background: #AEF1AE'>logField(&quot;channelCount&quot;)(</span><span style='background: #F0ADAD'>uint(3)</span><span style='background: #AEF1AE'>.xmap(_ + 1, _ - 1))</span><span style=''>
+</span>68 <span style=''>  private val channelCountCodec = </span><span style='background: #AEF1AE'>logField(&quot;channelCount&quot;)(uint(3).xmap(_ + 1, _ - 1))</span><span style=''>
 </span>69 <span style=''>  private val sampleRateCodec   = </span><span style='background: #AEF1AE'>logField(&quot;sampleRate&quot;)(uint(20))</span><span style=''>
-</span>70 <span style=''>  private val bitsDepthCodec    = </span><span style='background: #AEF1AE'>logField(&quot;bitsDepth&quot;)(</span><span style='background: #F0ADAD'>uint(5)</span><span style='background: #AEF1AE'>.xmap(_ + 1, _ - 1))</span><span style=''>
+</span>70 <span style=''>  private val bitsDepthCodec    = </span><span style='background: #AEF1AE'>logField(&quot;bitsDepth&quot;)(uint(5).xmap(_ + 1, _ - 1))</span><span style=''>
 </span>71 <span style=''>  private val samplesCountCodec = </span><span style='background: #AEF1AE'>logField(&quot;samplesCount&quot;)(ulong(36))</span><span style=''>
 </span>72 <span style=''>  private val audioDataMd5Codec = </span><span style='background: #AEF1AE'>logField(&quot;audioDataMd5&quot;)(codecs.bits(128))</span><span style=''>
 </span>73 <span style=''>
 </span>74 <span style=''>  val codec: Codec[StreamInfo] = </span><span style='background: #AEF1AE'>{
-</span>75 <span style=''></span><span style='background: #AEF1AE'>    </span><span style='background: #F0ADAD'>minBlockSizeCodec ::
-</span>76 <span style=''></span><span style='background: #F0ADAD'>      maxBlockSizeCodec ::
-</span>77 <span style=''></span><span style='background: #F0ADAD'>      minFrameSizeCodec ::
-</span>78 <span style=''></span><span style='background: #F0ADAD'>      maxFrameSizeCodec ::
-</span>79 <span style=''></span><span style='background: #F0ADAD'>      sampleRateCodec ::
-</span>80 <span style=''></span><span style='background: #F0ADAD'>      channelCountCodec ::
-</span>81 <span style=''></span><span style='background: #F0ADAD'>      bitsDepthCodec ::
-</span>82 <span style=''></span><span style='background: #F0ADAD'>      samplesCountCodec ::
-</span>83 <span style=''></span><span style='background: #F0ADAD'>      audioDataMd5Codec</span><span style='background: #AEF1AE'>
+</span>75 <span style=''></span><span style='background: #AEF1AE'>    minBlockSizeCodec ::
+</span>76 <span style=''></span><span style='background: #AEF1AE'>      maxBlockSizeCodec ::
+</span>77 <span style=''></span><span style='background: #AEF1AE'>      minFrameSizeCodec ::
+</span>78 <span style=''></span><span style='background: #AEF1AE'>      maxFrameSizeCodec ::
+</span>79 <span style=''></span><span style='background: #AEF1AE'>      sampleRateCodec ::
+</span>80 <span style=''></span><span style='background: #AEF1AE'>      channelCountCodec ::
+</span>81 <span style=''></span><span style='background: #AEF1AE'>      bitsDepthCodec ::
+</span>82 <span style=''></span><span style='background: #AEF1AE'>      samplesCountCodec ::
+</span>83 <span style=''></span><span style='background: #AEF1AE'>      audioDataMd5Codec
 </span>84 <span style=''></span><span style='background: #AEF1AE'>  }.as[StreamInfo]</span><span style=''>
 </span></pre>
           </div>
@@ -120,10 +120,10 @@
         <th>Code</th>
       </tr><tr>
         <td>
-          63
+          64
         </td>
         <td>
-          85
+          86
         </td>
         <td>
           3303
@@ -144,10 +144,10 @@
         </td>
       </tr><tr>
         <td>
-          64
+          65
         </td>
         <td>
-          280
+          282
         </td>
         <td>
           3370
@@ -168,10 +168,10 @@
         </td>
       </tr><tr>
         <td>
-          65
+          66
         </td>
         <td>
-          172
+          173
         </td>
         <td>
           3437
@@ -192,10 +192,10 @@
         </td>
       </tr><tr>
         <td>
-          66
+          67
         </td>
         <td>
-          103
+          104
         </td>
         <td>
           3504
@@ -216,10 +216,10 @@
         </td>
       </tr><tr>
         <td>
-          67
+          68
         </td>
         <td>
-          298
+          301
         </td>
         <td>
           3571
@@ -240,34 +240,10 @@
         </td>
       </tr><tr>
         <td>
-          67
+          68
         </td>
         <td>
-          64
-        </td>
-        <td>
-          3596
-          -
-          3603
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          uint
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          uint(3)
-        </td>
-      </tr><tr>
-        <td>
-          67
-        </td>
-        <td>
-          195
+          196
         </td>
         <td>
           3596
@@ -291,12 +267,12 @@
           68
         </td>
         <td>
-          205
+          64
         </td>
         <td>
-          3681
+          3596
           -
-          3689
+          3603
         </td>
         <td>
           Apply
@@ -308,14 +284,14 @@
           
         </td>
         <td style="background: #AEF1AE">
-          uint(20)
+          uint(3)
         </td>
       </tr><tr>
         <td>
-          68
+          69
         </td>
         <td>
-          260
+          262
         </td>
         <td>
           3658
@@ -339,12 +315,12 @@
           69
         </td>
         <td>
-          173
+          207
         </td>
         <td>
-          3747
+          3681
           -
-          3754
+          3689
         </td>
         <td>
           Apply
@@ -355,15 +331,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
-          uint(5)
+        <td style="background: #AEF1AE">
+          uint(20)
         </td>
       </tr><tr>
         <td>
-          69
+          70
         </td>
         <td>
-          82
+          83
         </td>
         <td>
           3725
@@ -384,10 +360,10 @@
         </td>
       </tr><tr>
         <td>
-          69
+          70
         </td>
         <td>
-          293
+          295
         </td>
         <td>
           3747
@@ -411,7 +387,31 @@
           70
         </td>
         <td>
-          116
+          174
+        </td>
+        <td>
+          3747
+          -
+          3754
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          uint
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          uint(5)
+        </td>
+      </tr><tr>
+        <td>
+          71
+        </td>
+        <td>
+          117
         </td>
         <td>
           3809
@@ -432,10 +432,10 @@
         </td>
       </tr><tr>
         <td>
-          70
+          71
         </td>
         <td>
-          299
+          302
         </td>
         <td>
           3834
@@ -456,34 +456,10 @@
         </td>
       </tr><tr>
         <td>
-          71
+          72
         </td>
         <td>
-          77
-        </td>
-        <td>
-          3904
-          -
-          3920
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          bits
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          codecs.bits(128)
-        </td>
-      </tr><tr>
-        <td>
-          71
-        </td>
-        <td>
-          190
+          191
         </td>
         <td>
           3879
@@ -504,10 +480,34 @@
         </td>
       </tr><tr>
         <td>
-          73
+          72
         </td>
         <td>
-          261
+          78
+        </td>
+        <td>
+          3904
+          -
+          3920
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          bits
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          codecs.bits(128)
+        </td>
+      </tr><tr>
+        <td>
+          74
+        </td>
+        <td>
+          263
         </td>
         <td>
           3956
@@ -528,10 +528,10 @@
         </td>
       </tr><tr>
         <td>
-          74
+          75
         </td>
         <td>
-          217
+          219
         </td>
         <td>
           3962
@@ -547,15 +547,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           minBlockSizeCodec ::\n      maxBlockSizeCodec ::\n      minFrameSizeCodec ::\n      maxFrameSizeCodec ::\n      sampleRateCodec ::\n      channelCountCodec ::\n      bitsDepthCodec ::\n      samplesCountCodec ::\n      audioDataMd5Codec
         </td>
       </tr><tr>
         <td>
-          75
+          76
         </td>
         <td>
-          90
+          91
         </td>
         <td>
           3989
@@ -571,15 +571,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           maxBlockSizeCodec ::\n      minFrameSizeCodec ::\n      maxFrameSizeCodec ::\n      sampleRateCodec ::\n      channelCountCodec ::\n      bitsDepthCodec ::\n      samplesCountCodec ::\n      audioDataMd5Codec
         </td>
       </tr><tr>
         <td>
-          76
+          77
         </td>
         <td>
-          288
+          290
         </td>
         <td>
           4016
@@ -595,15 +595,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           minFrameSizeCodec ::\n      maxFrameSizeCodec ::\n      sampleRateCodec ::\n      channelCountCodec ::\n      bitsDepthCodec ::\n      samplesCountCodec ::\n      audioDataMd5Codec
         </td>
       </tr><tr>
         <td>
-          77
+          78
         </td>
         <td>
-          169
+          170
         </td>
         <td>
           4043
@@ -619,15 +619,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           maxFrameSizeCodec ::\n      sampleRateCodec ::\n      channelCountCodec ::\n      bitsDepthCodec ::\n      samplesCountCodec ::\n      audioDataMd5Codec
         </td>
       </tr><tr>
         <td>
-          78
+          79
         </td>
         <td>
-          98
+          99
         </td>
         <td>
           4070
@@ -643,15 +643,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           sampleRateCodec ::\n      channelCountCodec ::\n      bitsDepthCodec ::\n      samplesCountCodec ::\n      audioDataMd5Codec
         </td>
       </tr><tr>
         <td>
-          79
+          80
         </td>
         <td>
-          313
+          316
         </td>
         <td>
           4095
@@ -667,15 +667,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           channelCountCodec ::\n      bitsDepthCodec ::\n      samplesCountCodec ::\n      audioDataMd5Codec
         </td>
       </tr><tr>
         <td>
-          80
+          81
         </td>
         <td>
-          191
+          192
         </td>
         <td>
           4122
@@ -691,15 +691,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           bitsDepthCodec ::\n      samplesCountCodec ::\n      audioDataMd5Codec
         </td>
       </tr><tr>
         <td>
-          81
+          82
         </td>
         <td>
-          78
+          79
         </td>
         <td>
           4146
@@ -715,7 +715,7 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           samplesCountCodec ::\n      audioDataMd5Codec
         </td>
       </tr>

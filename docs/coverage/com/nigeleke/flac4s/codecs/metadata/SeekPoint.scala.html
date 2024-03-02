@@ -73,9 +73,9 @@
 </span>49 <span style=''>  private val frameHeaderOffsetCodec = </span><span style='background: #AEF1AE'>logField(&quot;frameOffset&quot;)(int64)</span><span style=''>
 </span>50 <span style=''>  private val samplesCountCodec      = </span><span style='background: #AEF1AE'>logField(&quot;samplesCount&quot;)(int16)</span><span style=''>
 </span>51 <span style=''>
-</span>52 <span style=''>  </span><span style='background: #AEF1AE'>def codec</span><span style=''>: Codec[SeekPoint] = </span><span style='background: #F0ADAD'>{
-</span>53 <span style=''></span><span style='background: #F0ADAD'>    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec
-</span>54 <span style=''></span><span style='background: #F0ADAD'>  }.dropUnits</span><span style='background: #AEF1AE'>.as[SeekPoint]</span><span style=''>
+</span>52 <span style=''>  </span><span style='background: #AEF1AE'>def codec</span><span style=''>: Codec[SeekPoint] = </span><span style='background: #AEF1AE'>{
+</span>53 <span style=''></span><span style='background: #AEF1AE'>    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec
+</span>54 <span style=''></span><span style='background: #AEF1AE'>  }.dropUnits.as[SeekPoint]</span><span style=''>
 </span></pre>
           </div>
           <div class="tab-pane" id="statementlist">
@@ -90,10 +90,10 @@
         <th>Code</th>
       </tr><tr>
         <td>
-          47
+          48
         </td>
         <td>
-          180
+          181
         </td>
         <td>
           2142
@@ -114,7 +114,7 @@
         </td>
       </tr><tr>
         <td>
-          48
+          49
         </td>
         <td>
           71
@@ -138,7 +138,7 @@
         </td>
       </tr><tr>
         <td>
-          49
+          50
         </td>
         <td>
           4
@@ -162,10 +162,10 @@
         </td>
       </tr><tr>
         <td>
-          51
+          52
         </td>
         <td>
-          101
+          102
         </td>
         <td>
           2318
@@ -186,10 +186,10 @@
         </td>
       </tr><tr>
         <td>
-          51
+          52
         </td>
         <td>
-          204
+          206
         </td>
         <td>
           2348
@@ -210,34 +210,10 @@
         </td>
       </tr><tr>
         <td>
-          52
+          53
         </td>
         <td>
-          277
-        </td>
-        <td>
-          2375
-          -
-          2418
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          ::
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          frameHeaderOffsetCodec :: samplesCountCodec
-        </td>
-      </tr><tr>
-        <td>
-          52
-        </td>
-        <td>
-          94
+          95
         </td>
         <td>
           2354
@@ -253,7 +229,7 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec
         </td>
       </tr><tr>
@@ -261,31 +237,31 @@
           53
         </td>
         <td>
-          104
+          279
         </td>
         <td>
-          2348
+          2375
           -
-          2432
+          2418
         </td>
         <td>
           Apply
         </td>
         <td>
-          apply
+          ::
         </td>
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
-          {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
+        <td style="background: #AEF1AE">
+          frameHeaderOffsetCodec :: samplesCountCodec
         </td>
       </tr><tr>
         <td>
-          53
+          54
         </td>
         <td>
-          176
+          92
         </td>
         <td>
           2348
@@ -301,12 +277,60 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          53
+          54
+        </td>
+        <td>
+          286
+        </td>
+        <td>
+          2348
+          -
+          2432
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          54
+        </td>
+        <td>
+          313
+        </td>
+        <td>
+          2348
+          -
+          2432
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          54
         </td>
         <td>
           74
@@ -325,12 +349,12 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          53
+          54
         </td>
         <td>
           20
@@ -349,63 +373,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          53
+          54
         </td>
         <td>
-          310
-        </td>
-        <td>
-          2348
-          -
-          2432
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          tail
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          53
-        </td>
-        <td>
-          214
-        </td>
-        <td>
-          2348
-          -
-          2432
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          tail
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          53
-        </td>
-        <td>
-          196
+          118
         </td>
         <td>
           2348
@@ -421,36 +397,12 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          53
-        </td>
-        <td>
-          91
-        </td>
-        <td>
-          2348
-          -
-          2432
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          cons
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          53
+          54
         </td>
         <td>
           16
@@ -469,15 +421,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          53
+          54
         </td>
         <td>
-          294
+          97
         </td>
         <td>
           2348
@@ -493,39 +445,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          53
+          54
         </td>
         <td>
-          237
-        </td>
-        <td>
-          2348
-          -
-          2432
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          xmap
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          53
-        </td>
-        <td>
-          213
+          216
         </td>
         <td>
           2348
@@ -541,15 +469,39 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          53
+          54
         </td>
         <td>
-          96
+          198
+        </td>
+        <td>
+          2348
+          -
+          2432
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          54
+        </td>
+        <td>
+          177
         </td>
         <td>
           2348
@@ -565,12 +517,36 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          53
+          54
+        </td>
+        <td>
+          105
+        </td>
+        <td>
+          2348
+          -
+          2432
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          54
         </td>
         <td>
           69
@@ -589,39 +565,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          53
+          54
         </td>
         <td>
-          117
-        </td>
-        <td>
-          2348
-          -
-          2432
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          apply
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          53
-        </td>
-        <td>
-          284
+          171
         </td>
         <td>
           2348
@@ -637,15 +589,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          53
+          54
         </td>
         <td>
-          170
+          308
         </td>
         <td>
           2348
@@ -656,17 +608,65 @@
           Apply
         </td>
         <td>
-          cons
+          tail
         </td>
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          53
+          54
+        </td>
+        <td>
+          239
+        </td>
+        <td>
+          2348
+          -
+          2432
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          xmap
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          54
+        </td>
+        <td>
+          215
+        </td>
+        <td>
+          2348
+          -
+          2432
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          54
         </td>
         <td>
           197
@@ -685,15 +685,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          53
+          54
         </td>
         <td>
-          305
+          296
         </td>
         <td>
           2348
@@ -704,12 +704,12 @@
           Apply
         </td>
         <td>
-          tail
+          cons
         </td>
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    sampleNumberCodec :: frameHeaderOffsetCodec :: samplesCountCodec\n  }.dropUnits
         </td>
       </tr>

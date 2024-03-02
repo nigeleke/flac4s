@@ -66,7 +66,7 @@
 </span>42 <span style=''>
 </span>43 <span style=''>  //  &lt;n&gt;   n '0' bits (n must be a multiple of 8)
 </span>44 <span style=''>  //
-</span>45 <span style=''>  </span><span style='background: #AEF1AE'>def codec</span><span style=''>(using header: MetadataBlock.Header): Codec[Padding] = </span><span style='background: #F0ADAD'>bytes(header.length)</span><span style='background: #AEF1AE'>.as[Padding]</span><span style=''>
+</span>45 <span style=''>  </span><span style='background: #AEF1AE'>def codec</span><span style=''>(using header: MetadataBlock.Header): Codec[Padding] = </span><span style='background: #AEF1AE'>bytes(header.length).as[Padding]</span><span style=''>
 </span></pre>
           </div>
           <div class="tab-pane" id="statementlist">
@@ -81,34 +81,10 @@
         <th>Code</th>
       </tr><tr>
         <td>
-          44
+          45
         </td>
         <td>
-          185
-        </td>
-        <td>
-          1850
-          -
-          1859
-        </td>
-        <td>
-          DefDef
-        </td>
-        <td>
-          codec
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          def codec
-        </td>
-      </tr><tr>
-        <td>
-          44
-        </td>
-        <td>
-          108
+          109
         </td>
         <td>
           1914
@@ -129,10 +105,34 @@
         </td>
       </tr><tr>
         <td>
-          44
+          45
         </td>
         <td>
-          311
+          186
+        </td>
+        <td>
+          1850
+          -
+          1859
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          codec
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def codec
+        </td>
+      </tr><tr>
+        <td>
+          45
+        </td>
+        <td>
+          314
         </td>
         <td>
           1914
@@ -148,7 +148,7 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           bytes(header.length)
         </td>
       </tr>

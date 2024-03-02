@@ -83,7 +83,7 @@
 </span>59 <span style=''>  val codec: Codec[MetadataBlocks] =
 </span>60 <span style=''>    </span><span style='background: #AEF1AE'>MetadataBlock.codec.consume(block =&gt;
 </span>61 <span style=''></span><span style='background: #AEF1AE'>      if block.header.isLast
-</span>62 <span style=''></span><span style='background: #AEF1AE'>      then provide(</span><span style='background: #F0ADAD'>List</span><span style='background: #AEF1AE'>(block))
+</span>62 <span style=''></span><span style='background: #AEF1AE'>      then provide(List(block))
 </span>63 <span style=''></span><span style='background: #AEF1AE'>      else codec.xmap(blocks =&gt; block +: blocks, blocks =&gt; blocks.tail)
 </span>64 <span style=''></span><span style='background: #AEF1AE'>    )(blocks =&gt; blocks.head)</span><span style=''>
 </span></pre>
@@ -100,34 +100,10 @@
         <th>Code</th>
       </tr><tr>
         <td>
-          61
+          62
         </td>
         <td>
-          124
-        </td>
-        <td>
-          2544
-          -
-          2564
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          provide
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          provide(List(block))
-        </td>
-      </tr><tr>
-        <td>
-          61
-        </td>
-        <td>
-          115
+          125
         </td>
         <td>
           2544
@@ -148,10 +124,34 @@
         </td>
       </tr><tr>
         <td>
-          61
+          62
         </td>
         <td>
-          189
+          116
+        </td>
+        <td>
+          2544
+          -
+          2564
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          provide
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          provide(List(block))
+        </td>
+      </tr><tr>
+        <td>
+          62
+        </td>
+        <td>
+          190
         </td>
         <td>
           2552
@@ -167,15 +167,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           List
         </td>
       </tr><tr>
         <td>
-          61
+          62
         </td>
         <td>
-          308
+          311
         </td>
         <td>
           2552
@@ -196,31 +196,55 @@
         </td>
       </tr><tr>
         <td>
-          62
+          63
         </td>
         <td>
-          95
+          218
         </td>
         <td>
-          2624
+          2597
           -
-          2635
+          2612
         </td>
         <td>
-          Select
+          Apply
         </td>
         <td>
-          tail
+          +:
         </td>
         <td>
           
         </td>
         <td style="background: #AEF1AE">
-          blocks.tail
+          block +: blocks
         </td>
       </tr><tr>
         <td>
-          62
+          63
+        </td>
+        <td>
+          289
+        </td>
+        <td>
+          2576
+          -
+          2636
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          xmap
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          codec.xmap(blocks =&gt; block +: blocks, blocks =&gt; blocks.tail)
+        </td>
+      </tr><tr>
+        <td>
+          63
         </td>
         <td>
           7
@@ -244,58 +268,34 @@
         </td>
       </tr><tr>
         <td>
-          62
-        </td>
-        <td>
-          216
-        </td>
-        <td>
-          2597
-          -
-          2612
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          +:
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          block +: blocks
-        </td>
-      </tr><tr>
-        <td>
-          62
-        </td>
-        <td>
-          287
-        </td>
-        <td>
-          2576
-          -
-          2636
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          xmap
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          codec.xmap(blocks =&gt; block +: blocks, blocks =&gt; blocks.tail)
-        </td>
-      </tr><tr>
-        <td>
           63
         </td>
         <td>
-          234
+          96
+        </td>
+        <td>
+          2624
+          -
+          2635
+        </td>
+        <td>
+          Select
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          blocks.tail
+        </td>
+      </tr><tr>
+        <td>
+          64
+        </td>
+        <td>
+          236
         </td>
         <td>
           2653
@@ -316,10 +316,10 @@
         </td>
       </tr><tr>
         <td>
-          63
+          64
         </td>
         <td>
-          233
+          235
         </td>
         <td>
           2467

@@ -70,7 +70,7 @@
 </span>46 <span style=''>  </span><span style='background: #AEF1AE'>def codec</span><span style=''>(using header: MetadataBlock.Header): Codec[SeekTable] =
 </span>47 <span style=''>    val seekPointLength  = 8 + 8 + 2
 </span>48 <span style=''>    val pointsCount: Int = header.length / seekPointLength
-</span>49 <span style=''>    </span><span style='background: #F0ADAD'>vectorOfN(provide(pointsCount), SeekPoint.codec)</span><span style='background: #AEF1AE'>
+</span>49 <span style=''>    </span><span style='background: #AEF1AE'>vectorOfN(provide(pointsCount), SeekPoint.codec)
 </span>50 <span style=''></span><span style='background: #AEF1AE'>      .xmap(SeekTable(_), _.seekPoints)</span><span style=''>
 </span></pre>
           </div>
@@ -86,10 +86,10 @@
         <th>Code</th>
       </tr><tr>
         <td>
-          45
+          46
         </td>
         <td>
-          203
+          205
         </td>
         <td>
           1881
@@ -110,7 +110,7 @@
         </td>
       </tr><tr>
         <td>
-          48
+          49
         </td>
         <td>
           11
@@ -129,12 +129,36 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           SeekPoint.codec
         </td>
       </tr><tr>
         <td>
-          48
+          49
+        </td>
+        <td>
+          193
+        </td>
+        <td>
+          2047
+          -
+          2095
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          vectorOfN
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          vectorOfN(provide(pointsCount), SeekPoint.codec)
+        </td>
+      </tr><tr>
+        <td>
+          49
         </td>
         <td>
           70
@@ -153,39 +177,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           provide(pointsCount)
         </td>
       </tr><tr>
         <td>
-          48
+          50
         </td>
         <td>
-          192
-        </td>
-        <td>
-          2047
-          -
-          2095
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          vectorOfN
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          vectorOfN(provide(pointsCount), SeekPoint.codec)
-        </td>
-      </tr><tr>
-        <td>
-          49
-        </td>
-        <td>
-          306
+          309
         </td>
         <td>
           2047

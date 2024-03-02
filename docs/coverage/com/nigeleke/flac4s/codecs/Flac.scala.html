@@ -78,14 +78,14 @@
 </span>54 <span style=''>
 </span>55 <span style=''>  private val markerCodec = </span><span style='background: #AEF1AE'>constant(ByteVector(&quot;fLaC&quot;.getBytes))</span><span style=''>
 </span>56 <span style=''>
-</span>57 <span style=''>  private val codec: Codec[Flac] = </span><span style='background: #F0ADAD'>{
-</span>58 <span style=''></span><span style='background: #F0ADAD'>    markerCodec ::
-</span>59 <span style=''></span><span style='background: #F0ADAD'>      MetadataBlocks.codec
-</span>60 <span style=''></span><span style='background: #F0ADAD'>        .flatZip { blocks =&gt;
-</span>61 <span style=''></span><span style='background: #F0ADAD'>          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]
-</span>62 <span style=''></span><span style='background: #F0ADAD'>          AudioBits.codec
-</span>63 <span style=''></span><span style='background: #F0ADAD'>        }
-</span>64 <span style=''></span><span style='background: #F0ADAD'>  }.dropUnits</span><span style='background: #AEF1AE'>.as[Flac]</span><span style=''>
+</span>57 <span style=''>  private val codec: Codec[Flac] = </span><span style='background: #AEF1AE'>{
+</span>58 <span style=''></span><span style='background: #AEF1AE'>    markerCodec ::
+</span>59 <span style=''></span><span style='background: #AEF1AE'>      MetadataBlocks.codec
+</span>60 <span style=''></span><span style='background: #AEF1AE'>        .flatZip { blocks =&gt;
+</span>61 <span style=''></span><span style='background: #AEF1AE'>          given streamInfo: StreamInfo = </span><span style='background: #F0ADAD'>blocks.head</span><span style='background: #AEF1AE'>.data.asInstanceOf[StreamInfo]
+</span>62 <span style=''></span><span style='background: #AEF1AE'>          AudioBits.codec
+</span>63 <span style=''></span><span style='background: #AEF1AE'>        }
+</span>64 <span style=''></span><span style='background: #AEF1AE'>  }.dropUnits.as[Flac]</span><span style=''>
 </span>65 <span style=''>
 </span>66 <span style=''>  </span><span style='background: #AEF1AE'>def from</span><span style=''>(bv: BitVector): Attempt[DecodeResult[Flac]] = </span><span style='background: #AEF1AE'>codec.decode(bv)</span><span style=''>
 </span>67 <span style=''>
@@ -106,10 +106,10 @@
         <th>Code</th>
       </tr><tr>
         <td>
-          54
+          55
         </td>
         <td>
-          184
+          185
         </td>
         <td>
           2035
@@ -130,7 +130,7 @@
         </td>
       </tr><tr>
         <td>
-          54
+          55
         </td>
         <td>
           73
@@ -154,10 +154,10 @@
         </td>
       </tr><tr>
         <td>
-          54
+          55
         </td>
         <td>
-          314
+          317
         </td>
         <td>
           2026
@@ -178,10 +178,10 @@
         </td>
       </tr><tr>
         <td>
-          56
+          57
         </td>
         <td>
-          262
+          264
         </td>
         <td>
           2100
@@ -202,10 +202,10 @@
         </td>
       </tr><tr>
         <td>
-          57
+          58
         </td>
         <td>
-          147
+          148
         </td>
         <td>
           2106
@@ -221,15 +221,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }
         </td>
       </tr><tr>
         <td>
-          59
+          60
         </td>
         <td>
-          79
+          80
         </td>
         <td>
           2127
@@ -245,15 +245,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }
         </td>
       </tr><tr>
         <td>
-          60
+          61
         </td>
         <td>
-          283
+          285
         </td>
         <td>
           2218
@@ -274,10 +274,10 @@
         </td>
       </tr><tr>
         <td>
-          61
+          62
         </td>
         <td>
-          161
+          162
         </td>
         <td>
           2270
@@ -293,39 +293,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           AudioBits.codec
         </td>
       </tr><tr>
         <td>
-          63
+          64
         </td>
         <td>
-          92
-        </td>
-        <td>
-          2100
-          -
-          2309
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          cons
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          63
-        </td>
-        <td>
-          158
+          194
         </td>
         <td>
           2100
@@ -336,17 +312,41 @@
           Apply
         </td>
         <td>
-          apply
+          tail
         </td>
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          63
+          64
+        </td>
+        <td>
+          149
+        </td>
+        <td>
+          2100
+          -
+          2309
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          64
         </td>
         <td>
           47
@@ -365,15 +365,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          63
+          64
         </td>
         <td>
-          193
+          258
         </td>
         <td>
           2100
@@ -389,39 +389,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          63
+          64
         </td>
         <td>
-          256
-        </td>
-        <td>
-          2100
-          -
-          2309
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          tail
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          63
-        </td>
-        <td>
-          259
+          261
         </td>
         <td>
           2100
@@ -437,132 +413,12 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          63
-        </td>
-        <td>
-          178
-        </td>
-        <td>
-          2100
-          -
-          2309
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          apply
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          63
-        </td>
-        <td>
-          148
-        </td>
-        <td>
-          2100
-          -
-          2309
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          tail
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          63
-        </td>
-        <td>
-          276
-        </td>
-        <td>
-          2100
-          -
-          2309
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          cons
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          63
-        </td>
-        <td>
-          255
-        </td>
-        <td>
-          2100
-          -
-          2309
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          apply
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          63
-        </td>
-        <td>
-          264
-        </td>
-        <td>
-          2100
-          -
-          2309
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          apply
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          63
+          64
         </td>
         <td>
           60
@@ -581,12 +437,36 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          63
+          64
+        </td>
+        <td>
+          159
+        </td>
+        <td>
+          2100
+          -
+          2309
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          64
         </td>
         <td>
           45
@@ -605,12 +485,12 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          63
+          64
         </td>
         <td>
           72
@@ -629,15 +509,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          63
+          64
         </td>
         <td>
-          152
+          153
         </td>
         <td>
           2100
@@ -653,12 +533,156 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
         </td>
       </tr><tr>
         <td>
-          65
+          64
+        </td>
+        <td>
+          93
+        </td>
+        <td>
+          2100
+          -
+          2309
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          64
+        </td>
+        <td>
+          257
+        </td>
+        <td>
+          2100
+          -
+          2309
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          64
+        </td>
+        <td>
+          266
+        </td>
+        <td>
+          2100
+          -
+          2309
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          64
+        </td>
+        <td>
+          179
+        </td>
+        <td>
+          2100
+          -
+          2309
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          64
+        </td>
+        <td>
+          278
+        </td>
+        <td>
+          2100
+          -
+          2309
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    markerCodec ::\n      MetadataBlocks.codec\n        .flatZip { blocks =&gt;\n          given streamInfo: StreamInfo = blocks.head.data.asInstanceOf[StreamInfo]\n          AudioBits.codec\n        }\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          66
+        </td>
+        <td>
+          283
+        </td>
+        <td>
+          2322
+          -
+          2330
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          from
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def from
+        </td>
+      </tr><tr>
+        <td>
+          66
         </td>
         <td>
           22
@@ -682,82 +706,10 @@
         </td>
       </tr><tr>
         <td>
-          65
+          68
         </td>
         <td>
-          281
-        </td>
-        <td>
-          2322
-          -
-          2330
-        </td>
-        <td>
-          DefDef
-        </td>
-        <td>
-          from
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          def from
-        </td>
-      </tr><tr>
-        <td>
-          67
-        </td>
-        <td>
-          194
-        </td>
-        <td>
-          2397
-          -
-          2405
-        </td>
-        <td>
-          DefDef
-        </td>
-        <td>
-          from
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          def from
-        </td>
-      </tr><tr>
-        <td>
-          67
-        </td>
-        <td>
-          250
-        </td>
-        <td>
-          2469
-          -
-          2484
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          readAllBytes
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          is.readAllBytes
-        </td>
-      </tr><tr>
-        <td>
-          67
-        </td>
-        <td>
-          174
+          175
         </td>
         <td>
           2454
@@ -778,7 +730,55 @@
         </td>
       </tr><tr>
         <td>
-          67
+          68
+        </td>
+        <td>
+          252
+        </td>
+        <td>
+          2469
+          -
+          2484
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          readAllBytes
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          is.readAllBytes
+        </td>
+      </tr><tr>
+        <td>
+          68
+        </td>
+        <td>
+          195
+        </td>
+        <td>
+          2397
+          -
+          2405
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          from
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def from
+        </td>
+      </tr><tr>
+        <td>
+          68
         </td>
         <td>
           48
@@ -802,10 +802,10 @@
         </td>
       </tr><tr>
         <td>
-          69
+          70
         </td>
         <td>
-          272
+          274
         </td>
         <td>
           2513
@@ -826,7 +826,7 @@
         </td>
       </tr><tr>
         <td>
-          69
+          70
         </td>
         <td>
           66

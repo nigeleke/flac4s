@@ -73,7 +73,7 @@
 </span>49 <span style=''>  </span><span style='background: #AEF1AE'>private def applicationDataCodec</span><span style=''>(size: Int) = </span><span style='background: #AEF1AE'>logField(&quot;applicationData&quot;)(codecs.bytes(size))</span><span style=''>
 </span>50 <span style=''>
 </span>51 <span style=''>  </span><span style='background: #AEF1AE'>def codec</span><span style=''>(using header: MetadataBlock.Header): Codec[Application] =
-</span>52 <span style=''>    </span><span style='background: #AEF1AE'>(</span><span style='background: #F0ADAD'>applicationIdCodec :: applicationDataCodec(header.length - 4)</span><span style='background: #AEF1AE'>).as[Application]</span><span style=''>
+</span>52 <span style=''>    </span><span style='background: #AEF1AE'>(applicationIdCodec :: applicationDataCodec(header.length - 4)).as[Application]</span><span style=''>
 </span></pre>
           </div>
           <div class="tab-pane" id="statementlist">
@@ -88,10 +88,10 @@
         <th>Code</th>
       </tr><tr>
         <td>
-          47
+          48
         </td>
         <td>
-          175
+          176
         </td>
         <td>
           2048
@@ -112,31 +112,7 @@
         </td>
       </tr><tr>
         <td>
-          48
-        </td>
-        <td>
-          182
-        </td>
-        <td>
-          2084
-          -
-          2116
-        </td>
-        <td>
-          DefDef
-        </td>
-        <td>
-          applicationDataCodec
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          private def applicationDataCodec
-        </td>
-      </tr><tr>
-        <td>
-          48
+          49
         </td>
         <td>
           44
@@ -160,10 +136,10 @@
         </td>
       </tr><tr>
         <td>
-          48
+          49
         </td>
         <td>
-          251
+          253
         </td>
         <td>
           2158
@@ -184,7 +160,31 @@
         </td>
       </tr><tr>
         <td>
-          50
+          49
+        </td>
+        <td>
+          183
+        </td>
+        <td>
+          2084
+          -
+          2116
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          applicationDataCodec
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          private def applicationDataCodec
+        </td>
+      </tr><tr>
+        <td>
+          51
         </td>
         <td>
           37
@@ -208,7 +208,31 @@
         </td>
       </tr><tr>
         <td>
-          51
+          52
+        </td>
+        <td>
+          145
+        </td>
+        <td>
+          2276
+          -
+          2315
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          applicationDataCodec
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          applicationDataCodec(header.length - 4)
+        </td>
+      </tr><tr>
+        <td>
+          52
         </td>
         <td>
           67
@@ -232,10 +256,10 @@
         </td>
       </tr><tr>
         <td>
-          51
+          52
         </td>
         <td>
-          273
+          275
         </td>
         <td>
           2254
@@ -251,32 +275,8 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           applicationIdCodec :: applicationDataCodec(header.length - 4)
-        </td>
-      </tr><tr>
-        <td>
-          51
-        </td>
-        <td>
-          144
-        </td>
-        <td>
-          2276
-          -
-          2315
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          applicationDataCodec
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #F0ADAD">
-          applicationDataCodec(header.length - 4)
         </td>
       </tr>
     </table>

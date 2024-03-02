@@ -117,13 +117,13 @@
 </span>93 <span style=''>  private val dataCodec         = </span><span style='background: #AEF1AE'>logField(&quot;data&quot;)(uint32.flatZip { size =&gt; codecs.bits(size * 8) })</span><span style=''>
 </span>94 <span style=''>
 </span>95 <span style=''>  </span><span style='background: #AEF1AE'>def codec</span><span style=''>: Codec[Picture] = </span><span style='background: #AEF1AE'>{
-</span>96 <span style=''></span><span style='background: #AEF1AE'>    </span><span style='background: #F0ADAD'>pictureTypeCodec ::
-</span>97 <span style=''></span><span style='background: #F0ADAD'>      descriptionCodec ::
-</span>98 <span style=''></span><span style='background: #F0ADAD'>      widthCodec ::
-</span>99 <span style=''></span><span style='background: #F0ADAD'>      heightCodec ::
-</span>100 <span style=''></span><span style='background: #F0ADAD'>      colourDepthCodec ::
-</span>101 <span style=''></span><span style='background: #F0ADAD'>      coloursCountCodec ::
-</span>102 <span style=''></span><span style='background: #F0ADAD'>      dataCodec</span><span style='background: #AEF1AE'>
+</span>96 <span style=''></span><span style='background: #AEF1AE'>    pictureTypeCodec ::
+</span>97 <span style=''></span><span style='background: #AEF1AE'>      descriptionCodec ::
+</span>98 <span style=''></span><span style='background: #AEF1AE'>      widthCodec ::
+</span>99 <span style=''></span><span style='background: #AEF1AE'>      heightCodec ::
+</span>100 <span style=''></span><span style='background: #AEF1AE'>      colourDepthCodec ::
+</span>101 <span style=''></span><span style='background: #AEF1AE'>      coloursCountCodec ::
+</span>102 <span style=''></span><span style='background: #AEF1AE'>      dataCodec
 </span>103 <span style=''></span><span style='background: #AEF1AE'>  }.as[Picture]</span><span style=''>
 </span></pre>
           </div>
@@ -139,10 +139,10 @@
         <th>Code</th>
       </tr><tr>
         <td>
-          86
+          87
         </td>
         <td>
-          126
+          127
         </td>
         <td>
           3746
@@ -163,7 +163,7 @@
         </td>
       </tr><tr>
         <td>
-          87
+          88
         </td>
         <td>
           9
@@ -187,10 +187,10 @@
         </td>
       </tr><tr>
         <td>
-          88
+          89
         </td>
         <td>
-          208
+          210
         </td>
         <td>
           3879
@@ -211,10 +211,10 @@
         </td>
       </tr><tr>
         <td>
-          89
+          90
         </td>
         <td>
-          86
+          87
         </td>
         <td>
           3939
@@ -235,10 +235,10 @@
         </td>
       </tr><tr>
         <td>
-          90
+          91
         </td>
         <td>
-          289
+          291
         </td>
         <td>
           4000
@@ -259,10 +259,10 @@
         </td>
       </tr><tr>
         <td>
-          91
+          92
         </td>
         <td>
-          219
+          221
         </td>
         <td>
           4066
@@ -283,10 +283,10 @@
         </td>
       </tr><tr>
         <td>
-          92
+          93
         </td>
         <td>
-          109
+          110
         </td>
         <td>
           4133
@@ -307,10 +307,10 @@
         </td>
       </tr><tr>
         <td>
-          92
+          93
         </td>
         <td>
-          186
+          187
         </td>
         <td>
           4175
@@ -331,10 +331,10 @@
         </td>
       </tr><tr>
         <td>
-          92
+          93
         </td>
         <td>
-          302
+          305
         </td>
         <td>
           4150
@@ -355,34 +355,10 @@
         </td>
       </tr><tr>
         <td>
-          94
+          95
         </td>
         <td>
-          307
-        </td>
-        <td>
-          4203
-          -
-          4212
-        </td>
-        <td>
-          DefDef
-        </td>
-        <td>
-          codec
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          def codec
-        </td>
-      </tr><tr>
-        <td>
-          94
-        </td>
-        <td>
-          127
+          128
         </td>
         <td>
           4231
@@ -406,6 +382,30 @@
           95
         </td>
         <td>
+          310
+        </td>
+        <td>
+          4203
+          -
+          4212
+        </td>
+        <td>
+          DefDef
+        </td>
+        <td>
+          codec
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          def codec
+        </td>
+      </tr><tr>
+        <td>
+          96
+        </td>
+        <td>
           3
         </td>
         <td>
@@ -422,15 +422,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           pictureTypeCodec ::\n      descriptionCodec ::\n      widthCodec ::\n      heightCodec ::\n      colourDepthCodec ::\n      coloursCountCodec ::\n      dataCodec
         </td>
       </tr><tr>
         <td>
-          96
+          97
         </td>
         <td>
-          209
+          211
         </td>
         <td>
           4263
@@ -446,15 +446,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           descriptionCodec ::\n      widthCodec ::\n      heightCodec ::\n      colourDepthCodec ::\n      coloursCountCodec ::\n      dataCodec
         </td>
       </tr><tr>
         <td>
-          97
+          98
         </td>
         <td>
-          93
+          94
         </td>
         <td>
           4289
@@ -470,15 +470,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           widthCodec ::\n      heightCodec ::\n      colourDepthCodec ::\n      coloursCountCodec ::\n      dataCodec
         </td>
       </tr><tr>
         <td>
-          98
+          99
         </td>
         <td>
-          285
+          287
         </td>
         <td>
           4309
@@ -494,15 +494,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           heightCodec ::\n      colourDepthCodec ::\n      coloursCountCodec ::\n      dataCodec
         </td>
       </tr><tr>
         <td>
-          99
+          100
         </td>
         <td>
-          221
+          223
         </td>
         <td>
           4330
@@ -518,15 +518,15 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           colourDepthCodec ::\n      coloursCountCodec ::\n      dataCodec
         </td>
       </tr><tr>
         <td>
-          100
+          101
         </td>
         <td>
-          102
+          103
         </td>
         <td>
           4356
@@ -542,7 +542,7 @@
         <td>
           
         </td>
-        <td style="background: #F0ADAD">
+        <td style="background: #AEF1AE">
           coloursCountCodec ::\n      dataCodec
         </td>
       </tr>
