@@ -95,31 +95,7 @@
           49
         </td>
         <td>
-          303
-        </td>
-        <td>
-          2455
-          -
-          2483
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          logField
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          logField(&quot;offset&quot;)(bytes(8))
-        </td>
-      </tr><tr>
-        <td>
-          49
-        </td>
-        <td>
-          248
+          247
         </td>
         <td>
           2474
@@ -140,10 +116,34 @@
         </td>
       </tr><tr>
         <td>
+          49
+        </td>
+        <td>
+          302
+        </td>
+        <td>
+          2455
+          -
+          2483
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          logField
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          logField(&quot;offset&quot;)(bytes(8))
+        </td>
+      </tr><tr>
+        <td>
           50
         </td>
         <td>
-          137
+          136
         </td>
         <td>
           2526
@@ -161,6 +161,30 @@
         </td>
         <td style="background: #AEF1AE">
           logField(&quot;index&quot;)(uint8)
+        </td>
+      </tr><tr>
+        <td>
+          51
+        </td>
+        <td>
+          200
+        </td>
+        <td>
+          2602
+          -
+          2623
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          constant
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          constant(hex&quot;000000&quot;)
         </td>
       </tr><tr>
         <td>
@@ -191,30 +215,6 @@
           51
         </td>
         <td>
-          151
-        </td>
-        <td>
-          2611
-          -
-          2622
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          fromValidHex
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          hex&quot;000000&quot;
-        </td>
-      </tr><tr>
-        <td>
-          51
-        </td>
-        <td>
           40
         </td>
         <td>
@@ -239,31 +239,55 @@
           51
         </td>
         <td>
-          201
+          150
         </td>
         <td>
-          2602
+          2611
           -
-          2623
+          2622
         </td>
         <td>
           Apply
         </td>
         <td>
-          constant
+          fromValidHex
         </td>
         <td>
           
         </td>
         <td style="background: #AEF1AE">
-          constant(hex&quot;000000&quot;)
+          hex&quot;000000&quot;
         </td>
       </tr><tr>
         <td>
           54
         </td>
         <td>
-          101
+          227
+        </td>
+        <td>
+          2671
+          -
+          2760
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          as
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          (offsetCodec :: indexCodec)\n      .dropRight(reservedCodec)\n      .as[CuesheetTrackIndex]
+        </td>
+      </tr><tr>
+        <td>
+          54
+        </td>
+        <td>
+          100
         </td>
         <td>
           2671
@@ -287,7 +311,7 @@
           54
         </td>
         <td>
-          298
+          297
         </td>
         <td>
           2672
@@ -305,30 +329,6 @@
         </td>
         <td style="background: #AEF1AE">
           offsetCodec :: indexCodec
-        </td>
-      </tr><tr>
-        <td>
-          54
-        </td>
-        <td>
-          228
-        </td>
-        <td>
-          2671
-          -
-          2760
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          as
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          (offsetCodec :: indexCodec)\n      .dropRight(reservedCodec)\n      .as[CuesheetTrackIndex]
         </td>
       </tr>
     </table>

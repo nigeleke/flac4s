@@ -141,7 +141,7 @@
           61
         </td>
         <td>
-          139
+          138
         </td>
         <td>
           3660
@@ -165,7 +165,7 @@
           62
         </td>
         <td>
-          224
+          223
         </td>
         <td>
           3741
@@ -189,7 +189,7 @@
           63
         </td>
         <td>
-          164
+          163
         </td>
         <td>
           3807
@@ -237,7 +237,7 @@
           64
         </td>
         <td>
-          240
+          239
         </td>
         <td>
           3905
@@ -261,7 +261,7 @@
           65
         </td>
         <td>
-          132
+          131
         </td>
         <td>
           3966
@@ -279,30 +279,6 @@
         </td>
         <td style="background: #AEF1AE">
           logField(&quot;isPreEmphasis&quot;)(bool)
-        </td>
-      </tr><tr>
-        <td>
-          66
-        </td>
-        <td>
-          140
-        </td>
-        <td>
-          4063
-          -
-          4096
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          fill
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          BitVector.fill(6 + 13 * 8)(false)
         </td>
       </tr><tr>
         <td>
@@ -333,7 +309,31 @@
           66
         </td>
         <td>
-          267
+          139
+        </td>
+        <td>
+          4063
+          -
+          4096
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          fill
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          BitVector.fill(6 + 13 * 8)(false)
+        </td>
+      </tr><tr>
+        <td>
+          66
+        </td>
+        <td>
+          266
         </td>
         <td>
           4054
@@ -351,30 +351,6 @@
         </td>
         <td style="background: #AEF1AE">
           constant(BitVector.fill(6 + 13 * 8)(false))
-        </td>
-      </tr><tr>
-        <td>
-          68
-        </td>
-        <td>
-          225
-        </td>
-        <td>
-          4162
-          -
-          4204
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          vectorOfN
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          vectorOfN(uint8, CuesheetTrackIndex.codec)
         </td>
       </tr><tr>
         <td>
@@ -402,10 +378,34 @@
         </td>
       </tr><tr>
         <td>
+          68
+        </td>
+        <td>
+          224
+        </td>
+        <td>
+          4162
+          -
+          4204
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          vectorOfN
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          vectorOfN(uint8, CuesheetTrackIndex.codec)
+        </td>
+      </tr><tr>
+        <td>
           70
         </td>
         <td>
-          160
+          159
         </td>
         <td>
           4243
@@ -453,7 +453,7 @@
           72
         </td>
         <td>
-          242
+          241
         </td>
         <td>
           4275
@@ -477,7 +477,7 @@
           73
         </td>
         <td>
-          129
+          128
         </td>
         <td>
           4301
@@ -525,7 +525,7 @@
           75
         </td>
         <td>
-          268
+          267
         </td>
         <td>
           4342
@@ -549,7 +549,7 @@
           76
         </td>
         <td>
-          156
+          155
         </td>
         <td>
           4370
@@ -573,7 +573,7 @@
           78
         </td>
         <td>
-          209
+          146
         </td>
         <td>
           4243
@@ -584,7 +584,7 @@
           Apply
         </td>
         <td>
-          cons
+          apply
         </td>
         <td>
           
@@ -645,7 +645,7 @@
           78
         </td>
         <td>
-          131
+          122
         </td>
         <td>
           4243
@@ -656,7 +656,55 @@
           Apply
         </td>
         <td>
-          apply
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          78
+        </td>
+        <td>
+          113
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          78
+        </td>
+        <td>
+          149
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
         </td>
         <td>
           
@@ -681,6 +729,30 @@
         </td>
         <td>
           tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          78
+        </td>
+        <td>
+          125
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
         </td>
         <td>
           
@@ -741,7 +813,7 @@
           78
         </td>
         <td>
-          256
+          253
         </td>
         <td>
           4243
@@ -765,7 +837,7 @@
           78
         </td>
         <td>
-          229
+          142
         </td>
         <td>
           4243
@@ -776,7 +848,7 @@
           Apply
         </td>
         <td>
-          apply
+          cons
         </td>
         <td>
           
@@ -790,30 +862,6 @@
         </td>
         <td>
           232
-        </td>
-        <td>
-          4243
-          -
-          4424
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          apply
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          78
-        </td>
-        <td>
-          124
         </td>
         <td>
           4243
@@ -848,30 +896,6 @@
           Apply
         </td>
         <td>
-          apply
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          78
-        </td>
-        <td>
-          208
-        </td>
-        <td>
-          4243
-          -
-          4424
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
           tail
         </td>
         <td>
@@ -885,7 +909,7 @@
           78
         </td>
         <td>
-          100
+          208
         </td>
         <td>
           4243
@@ -981,7 +1005,7 @@
           78
         </td>
         <td>
-          157
+          130
         </td>
         <td>
           4243
@@ -992,7 +1016,7 @@
           Apply
         </td>
         <td>
-          tail
+          apply
         </td>
         <td>
           
@@ -1006,54 +1030,6 @@
         </td>
         <td>
           43
-        </td>
-        <td>
-          4243
-          -
-          4424
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          apply
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          78
-        </td>
-        <td>
-          276
-        </td>
-        <td>
-          4243
-          -
-          4424
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          apply
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          78
-        </td>
-        <td>
-          249
         </td>
         <td>
           4243
@@ -1125,6 +1101,30 @@
           78
         </td>
         <td>
+          207
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          tail
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          78
+        </td>
+        <td>
           19
         </td>
         <td>
@@ -1149,7 +1149,7 @@
           78
         </td>
         <td>
-          234
+          156
         </td>
         <td>
           4243
@@ -1160,31 +1160,7 @@
           Apply
         </td>
         <td>
-          cons
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          78
-        </td>
-        <td>
-          147
-        </td>
-        <td>
-          4243
-          -
-          4424
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          apply
+          tail
         </td>
         <td>
           
@@ -1221,7 +1197,7 @@
           78
         </td>
         <td>
-          213
+          228
         </td>
         <td>
           4243
@@ -1232,7 +1208,7 @@
           Apply
         </td>
         <td>
-          cons
+          apply
         </td>
         <td>
           
@@ -1245,7 +1221,7 @@
           78
         </td>
         <td>
-          150
+          105
         </td>
         <td>
           4243
@@ -1256,31 +1232,7 @@
           Apply
         </td>
         <td>
-          cons
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          78
-        </td>
-        <td>
-          114
-        </td>
-        <td>
-          4243
-          -
-          4424
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          tail
+          apply
         </td>
         <td>
           
@@ -1304,7 +1256,7 @@
           Apply
         </td>
         <td>
-          cons
+          tail
         </td>
         <td>
           
@@ -1328,7 +1280,7 @@
           Apply
         </td>
         <td>
-          cons
+          apply
         </td>
         <td>
           
@@ -1341,7 +1293,7 @@
           78
         </td>
         <td>
-          126
+          99
         </td>
         <td>
           4243
@@ -1353,30 +1305,6 @@
         </td>
         <td>
           cons
-        </td>
-        <td>
-          
-        </td>
-        <td style="background: #AEF1AE">
-          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
-        </td>
-      </tr><tr>
-        <td>
-          78
-        </td>
-        <td>
-          108
-        </td>
-        <td>
-          4243
-          -
-          4424
-        </td>
-        <td>
-          Apply
-        </td>
-        <td>
-          tail
         </td>
         <td>
           
@@ -1437,6 +1365,30 @@
           78
         </td>
         <td>
+          230
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          cons
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          78
+        </td>
+        <td>
           24
         </td>
         <td>
@@ -1461,7 +1413,55 @@
           78
         </td>
         <td>
-          143
+          248
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          78
+        </td>
+        <td>
+          275
+        </td>
+        <td>
+          4243
+          -
+          4424
+        </td>
+        <td>
+          Apply
+        </td>
+        <td>
+          apply
+        </td>
+        <td>
+          
+        </td>
+        <td style="background: #AEF1AE">
+          {\n    trackOffsetCodec ::\n      trackNumberCodec ::\n      isrcCodec ::\n      isAudioCodec ::\n      isPreEmphasisCodec ::\n      reservedCodec ::\n      trackIndexesCodec\n  }.dropUnits
+        </td>
+      </tr><tr>
+        <td>
+          78
+        </td>
+        <td>
+          212
         </td>
         <td>
           4243
@@ -1496,7 +1496,7 @@
           Apply
         </td>
         <td>
-          tail
+          cons
         </td>
         <td>
           
