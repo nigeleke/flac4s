@@ -8,7 +8,7 @@ val bsd3License = Some(HeaderLicense.BSD3Clause("2023", "Nigel Eke"))
 val configVersion     = "1.4.3"
 val scalatestVersion  = "3.2.18"
 val scodecBitsVersion = "1.2.0"
-val scodecCoreVersion = "2.2.2"
+val scodecCoreVersion = "2.3.0"
 
 ThisBuild / versionScheme := Some("early-semver")
 ThisBuild / publishTo     := Some(Resolver.defaultLocal)
