@@ -27,7 +27,7 @@ Based on the [Free Lossless Audio Codec - draft-ietf-cellar-flac-07](https://dat
 
 ## Dev-shell
 
-* `> nix develop --impure`
+* `> nix develop`
 
 ## Approach
 
