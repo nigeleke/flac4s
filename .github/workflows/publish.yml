@@ -36,9 +36,8 @@ jobs:
           mkdir -p docs0/core/api
           mkdir -p docs0/coverage
           cp README.md docs0/
-          scala --version
-          scala --help
-          cp -R core/target/scala-3.4.2/api/* docs0/core/api
+          VERSION=$(sbt -Dsbt.log.noformat=true "show core/scalaVersion" | grep -oP '(?<=\[info\] )\d+\.\d+\.\d+')
+          cp -R core/target/$VERSION/api/* docs0/core/api
           cp -R target/scala-2.12/scoverage-report/* docs0/coverage
 
       - name: Publish to Codecov
